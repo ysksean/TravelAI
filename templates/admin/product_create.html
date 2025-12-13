@@ -1,0 +1,408 @@
+{% extends "admin/base.html" %}
+
+{% block title %}상품 등록 (JSON 기반){% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- 헤더 -->
+    <div class="mb-8 flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold text-slate-800">상품 등록</h1>
+            <p class="text-slate-500 mt-2 text-lg">기존 골프 상품 데이터(JSON)를 불러와 빠르게 등록하세요.</p>
+        </div>
+        <div class="flex gap-2">
+            <!-- 1번: 통합된 업로드 버튼 (숨겨진 input 트리거) -->
+            <button type="button" onclick="document.getElementById('jsonFileInput').click()"
+                class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+                <i data-lucide="upload" size="20"></i>
+                <span>상품 JSON 업로드</span>
+            </button>
+            <input type="file" id="jsonFileInput" class="hidden" accept=".json" onchange="handleJsonUpload(this)">
+        </div>
+    </div>
+
+    <!-- 2번: 통합된 업로드 상태 영역 -->
+    <div id="uploadStatusArea" class="hidden mb-12 bg-white border border-indigo-100 rounded-2xl p-6 shadow-sm flex items-center justify-between animate-fade-in-up">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                <i data-lucide="file-json" size="24"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-slate-800" id="fileNameDisplay">Product_Master_Data.json</h3>
+                <p class="text-sm text-slate-500" id="fileSizeDisplay">24 KB • 분석 완료</p>
+            </div>
+        </div>
+        <button type="button" onclick="resetUpload()" class="text-slate-400 hover:text-red-500 transition-colors p-2">
+            <i data-lucide="trash-2" size="20"></i>
+        </button>
+    </div>
+
+    <!-- 3번: 메인 폼 (DB 스키마에 맞춰 데이터가 들어갈 자리) -->
+    <form id="productForm" class="space-y-12">
+        <!-- 폼 내용은 기존과 동일하되, JSON 데이터가 이곳에 매핑됩니다 -->
+        <input type="hidden" name="save_status" id="saveStatus" value="draft">
+
+        <!-- 1. 대표 이미지 -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="images" class="text-indigo-600" size="24"></i>
+                    대표 이미지
+                </h2>
+            </div>
+            <div class="p-8">
+                <div id="heroImageGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+            </div>
+        </section>
+
+        <!-- 2. 기본 정보 -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-6">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="info" class="text-indigo-600" size="20"></i>
+                    상품 기본 정보
+                </h2>
+                <!-- 카테고리 -->
+                <div class="flex flex-wrap gap-3">
+                    <div class="inline-flex bg-slate-100 p-1 rounded-lg">
+                        <label class="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all text-slate-500 hover:text-slate-700">
+                            <input type="radio" name="category" value="domestic" class="hidden"> 국내
+                        </label>
+                        <label class="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all bg-white text-slate-800 shadow-sm">
+                            <input type="radio" name="category" value="overseas" class="hidden" checked> 해외
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 위치 및 출발지 -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-500 mb-1.5">국가 / 도시</label>
+                        <input type="text" id="locationInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-500 mb-1.5">출발지</label>
+                        <select id="departurePointSelect" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none bg-white">
+                            <option value="ICN/GMP">인천/서울 (ICN/GMP)</option>
+                            <option value="PUS">부산 (PUS)</option>
+                            <option value="TAE">대구 (TAE)</option>
+                            <option value="ETC">기타</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 상품명 -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-500 mb-1.5">상품명</label>
+                    <input type="text" id="productNameInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none font-bold">
+                </div>
+
+                <!-- 가격 -->
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-500 mb-1.5">판매가 (1인)</label>
+                        <input type="text" id="priceAdultInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none text-right font-bold">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-500 mb-1.5">입금가 (NET)</label>
+                        <input type="text" id="priceNetInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none text-right font-bold text-slate-600">
+                    </div>
+                </div>
+
+                <!-- 기간 -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="nightsInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none text-center font-bold">
+                        <span class="text-slate-400">박</span>
+                        <input type="number" id="daysInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none text-center font-bold">
+                        <span class="text-slate-400">일</span>
+                    </div>
+                    <div>
+                        <input type="text" id="dateRangeInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none cursor-pointer">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 달력 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col h-full">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="calendar-days" class="text-indigo-600" size="20"></i>
+                    일정 시각화
+                </h2>
+                <div class="flex-1 bg-slate-50 rounded-xl p-4 border border-slate-100">
+                    <div class="flex justify-between items-center mb-4 px-2">
+                        <span class="font-bold text-slate-700 text-lg" id="calendarTitle">2025년 12월</span>
+                    </div>
+                    <div id="calendarGrid" class="grid grid-cols-7 gap-1 text-sm text-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 상세 일정 -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="map" class="text-indigo-600" size="24"></i>
+                    상세 일정 (Timeline)
+                </h2>
+            </div>
+            <div id="timelineContainer" class="p-8 space-y-10"></div>
+        </section>
+
+        <!-- 4. 호텔/골프 정보 -->
+        <div id="resourceContainer" class="space-y-6"></div>
+
+        <!-- 5. 상세 텍스트 -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+            <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <i data-lucide="list-checks" class="text-indigo-600" size="24"></i>
+                상품 상세 정보
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">포함 사항</label>
+                    <textarea id="inclusionsInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none resize-none" rows="5"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">불포함 사항</label>
+                    <textarea id="exclusionsInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none resize-none" rows="5"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">항공 정보</label>
+                    <input type="text" id="flightInfoInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">기타 특이사항</label>
+                    <textarea id="specialNotesInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none resize-none" rows="1"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- 에디터 영역 (HTML Content) -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+             <h2 class="text-xl font-bold text-slate-800 mb-6">상세 콘텐츠 에디터</h2>
+             <div id="editorBlocks" class="space-y-4"></div>
+        </section>
+    </form>
+</div>
+
+<!-- 하단 저장 버튼 -->
+<div class="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-slate-200 p-4 z-50">
+    <div class="max-w-6xl mx-auto flex justify-end gap-3">
+        <button onclick="submitToDB()" class="px-6 py-2.5 bg-indigo-600 text-white rounded-xl font-bold shadow-md hover:bg-indigo-700 transition-all">
+            DB 저장하기
+        </button>
+    </div>
+</div>
+
+<!-- 템플릿들 (기존과 동일하게 유지) -->
+<template id="daySectionTemplate">
+    <div class="day-section relative pl-8 border-l-2 border-indigo-100 ml-4 pb-8 last:border-l-0 last:pb-0">
+        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-50"></span>
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-xl text-slate-800 day-title">Day 1</h3>
+            <span class="text-sm text-slate-400 day-date"></span>
+        </div>
+        <div class="event-list space-y-3"></div>
+    </div>
+</template>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// ==========================================
+// 1. JSON 파일 업로드 및 파싱 핸들러
+// ==========================================
+window.handleJsonUpload = function(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    // UI 업데이트 (파일명 표시)
+    document.getElementById('uploadStatusArea').classList.remove('hidden');
+    document.getElementById('fileNameDisplay').textContent = file.name;
+    document.getElementById('fileSizeDisplay').textContent = (file.size / 1024).toFixed(1) + ' KB • 분석 완료';
+
+    // JSON 파일 읽기
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const jsonData = JSON.parse(e.target.result);
+            console.log("📂 JSON Loaded:", jsonData);
+
+            // 2. 화면에 데이터 매핑 (기존 로직 재사용)
+            mapMasterDataToUI(jsonData);
+
+            // 전역 변수에 저장 (나중에 DB 전송용)
+            window.loadedJsonData = jsonData;
+            alert("JSON 파일이 성공적으로 로드되었습니다.");
+
+        } catch (error) {
+            console.error("JSON Parse Error:", error);
+            alert("유효하지 않은 JSON 파일입니다.");
+        }
+    };
+    reader.readAsText(file);
+}
+
+window.resetUpload = function() {
+    document.getElementById('jsonFileInput').value = '';
+    document.getElementById('uploadStatusArea').classList.add('hidden');
+    document.getElementById('productForm').reset();
+    document.getElementById('timelineContainer').innerHTML = '';
+    document.getElementById('resourceContainer').innerHTML = '';
+    window.loadedJsonData = null;
+}
+
+// ==========================================
+// 3. DB 저장 핸들러 (Real API Call)
+// ==========================================
+window.submitToDB = async function() {
+    if (!window.loadedJsonData) {
+        alert("저장할 데이터가 없습니다. JSON 파일을 먼저 업로드해주세요.");
+        return;
+    }
+
+    const saveBtn = document.querySelector('button[onclick="submitToDB()"]');
+    const originalText = saveBtn.innerText;
+    saveBtn.innerText = "저장 중...";
+    saveBtn.disabled = true;
+
+    console.log("🚀 [Client] Sending Data to DB:", window.loadedJsonData);
+
+    try {
+        // [수정] 절대 경로 사용 (혹시 모를 상대 경로 문제 방지)
+        const response = await fetch('/api/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(window.loadedJsonData)
+        });
+
+        console.log("📡 [Client] Response Status:", response.status);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Server Error (${response.status}): ${errorText}`);
+        }
+
+        const result = await response.json();
+        console.log("✅ [Client] Success Result:", result);
+
+        if (result.status === 'success') {
+            alert(`DB에 성공적으로 저장되었습니다!\n(상품 ID: ${result.product_id})`);
+            // 성공 후 페이지 리로드 혹은 이동
+            // window.location.reload();
+        } else {
+            throw new Error(result.message || "Unknown error from server");
+        }
+
+    } catch (error) {
+        console.error("❌ [Client] Save Error:", error);
+        alert("저장 중 오류가 발생했습니다:\n" + error.message);
+    } finally {
+        saveBtn.innerText = originalText;
+        saveBtn.disabled = false;
+    }
+}
+
+
+// ==========================================
+// [재사용] Master JSON -> UI 매핑 로직
+// ==========================================
+function mapMasterDataToUI(data) {
+    // 1. Info
+    if (data.info) {
+        setVal('#productNameInput', data.info.product_name);
+        setVal('#locationInput', `${data.info.country} ${data.info.city}`);
+        setVal('#departurePointSelect', data.info.departure_point);
+        if (data.info.images) renderHeroImages(data.info.images);
+    }
+    // 2. Schedule & Pricing
+    if (data.schedule) {
+        setVal('#nightsInput', data.schedule.nights);
+        setVal('#daysInput', data.schedule.days);
+        setVal('#dateRangeInput', `${data.schedule.start_date} ~ ${data.schedule.end_date}`);
+    }
+    if (data.pricing) {
+        setVal('#priceAdultInput', data.pricing.price_adult?.toLocaleString());
+        setVal('#priceNetInput', data.pricing.price_net?.toLocaleString());
+    }
+    // 3. Details
+    if (data.details) {
+        setVal('#flightInfoInput', data.details.flight_summary);
+        if (Array.isArray(data.details.inclusions)) setVal('#inclusionsInput', data.details.inclusions.map(i=>`- ${i}`).join('\n'));
+        if (Array.isArray(data.details.exclusions)) setVal('#exclusionsInput', data.details.exclusions.map(i=>`- ${i}`).join('\n'));
+        if (Array.isArray(data.details.special_notes)) setVal('#specialNotesInput', data.details.special_notes.join('\n'));
+
+        // Editor Content
+        if(data.details.content_html) {
+             const tempDiv = document.createElement('div');
+             tempDiv.innerHTML = data.details.content_html;
+             document.getElementById('editorBlocks').innerHTML = `<div class="p-4 bg-slate-50 rounded-lg text-slate-600">${tempDiv.innerText}</div>`;
+        }
+    }
+    // 4. Resources
+    const resContainer = document.getElementById('resourceContainer');
+    resContainer.innerHTML = '';
+    if (data.resources) {
+        // Hotels
+        data.resources.hotels?.forEach(h => {
+            const card = document.createElement('div');
+            card.className = "bg-white p-4 border border-slate-200 rounded-xl mb-2";
+            card.innerHTML = `<strong class="text-indigo-600">호텔</strong> <span class="font-bold">${h.name}</span> <span class="text-sm text-slate-500">(${h.grade})</span>`;
+            resContainer.appendChild(card);
+        });
+        // Golf
+        data.resources.golf_courses?.forEach(g => {
+            const card = document.createElement('div');
+            card.className = "bg-white p-4 border border-slate-200 rounded-xl mb-2";
+            card.innerHTML = `<strong class="text-green-600">골프장</strong> <span class="font-bold">${g.name}</span> <span class="text-sm text-slate-500">${g.hole_info}</span>`;
+            resContainer.appendChild(card);
+        });
+    }
+    // 5. Itinerary
+    if (data.itinerary) renderTimeline(data.itinerary);
+}
+
+function renderTimeline(itinerary) {
+    const container = document.getElementById('timelineContainer');
+    const template = document.getElementById('daySectionTemplate');
+    container.innerHTML = '';
+
+    itinerary.forEach(day => {
+        const daySection = template.content.cloneNode(true);
+        daySection.querySelector('.day-title').textContent = `Day ${day.day}`;
+        if (day.date) daySection.querySelector('.day-date').textContent = day.date;
+
+        const eventList = daySection.querySelector('.event-list');
+        day.activities?.forEach(act => {
+             const div = document.createElement('div');
+             div.className = "bg-slate-50 p-3 rounded-lg border border-slate-100 mb-2";
+             div.innerHTML = `
+                <div class="flex justify-between">
+                    <span class="font-bold text-slate-700">${act.title}</span>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">${act.time || ''}</span>
+                </div>
+                <div class="text-sm text-slate-500 mt-1">${act.description}</div>
+             `;
+             eventList.appendChild(div);
+        });
+        container.appendChild(daySection);
+    });
+}
+
+function setVal(sel, val) {
+    const el = document.querySelector(sel);
+    if(el && val) el.value = val;
+}
+function renderHeroImages(images) {
+    const grid = document.getElementById('heroImageGrid');
+    grid.innerHTML = images.map(src => `<img src="${src}" class="w-full aspect-square object-cover rounded-lg border border-slate-200">`).join('');
+}
+
+if(window.lucide) lucide.createIcons();
+</script>
+{% endblock %}

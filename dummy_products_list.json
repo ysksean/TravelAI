@@ -1,0 +1,3653 @@
+[
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.904566",
+      "updated_at": "2025-12-13T15:15:47.904566",
+      "source_files": [
+        "quotation_001.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 세부 샹그릴라 막탄 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "필리핀",
+      "city": "세부",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-28",
+      "end_date": "2026-02-01",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 910000,
+      "price_child": 728000,
+      "price_infant": 91000,
+      "price_net": 637000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-세부 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>세부의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "샹그릴라 막탄",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "클럽 필리피노",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "세부 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "알타 비스타",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-28",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "세부 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-29",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "클럽 필리피노 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-30",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "세부 C.C 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-31",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "알타 비스타 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-02-01",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "세부 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.906597",
+      "updated_at": "2025-12-13T15:15:47.906597",
+      "source_files": [
+        "quotation_002.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 세부 제이파크 아일랜드 4박 5일 힐링 휴양 패키지",
+      "category": "overseas",
+      "product_type": "tour",
+      "country": "필리핀",
+      "city": "세부",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-01",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1980000,
+      "price_child": 1584000,
+      "price_infant": 198000,
+      "price_net": 1386000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-세부 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>세부의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "제이파크 아일랜드",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": []
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-05-28",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "세부 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-05-29",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "세부 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-05-30",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "세부 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-05-31",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "세부 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-06-01",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "세부 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.906597",
+      "updated_at": "2025-12-13T15:15:47.906597",
+      "source_files": [
+        "quotation_003.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 삿포로 삿포로 그랜드 호텔 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "일본",
+      "city": "삿포로",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-16",
+      "end_date": "2026-01-20",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2900000,
+      "price_child": 2320000,
+      "price_infant": 290000,
+      "price_net": 2029999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-삿포로 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>삿포로의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "삿포로 그랜드 호텔",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "홋카이도 클래식 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "삿포로 국제 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "해피 밸리 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-16",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "삿포로 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-17",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "홋카이도 클래식 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-18",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "삿포로 국제 C.C 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-19",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "해피 밸리 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-01-20",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "삿포로 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.906597",
+      "updated_at": "2025-12-13T15:15:47.906597",
+      "source_files": [
+        "quotation_004.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[베트남] 호치민 파크 하얏트 사이공 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "베트남",
+      "city": "호치민",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-03-15",
+      "end_date": "2026-03-19",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1270000,
+      "price_child": 1016000,
+      "price_infant": 127000,
+      "price_net": 889000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-호치민 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>호치민의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "파크 하얏트 사이공",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "롱탄 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "트윈 도브스 골프",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "탄손냑 골프 코스",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-03-15",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "호치민 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-03-16",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "롱탄 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-03-17",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "트윈 도브스 골프 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-03-18",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "탄손냑 골프 코스 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-03-19",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "호치민 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.906597",
+      "updated_at": "2025-12-13T15:15:47.906597",
+      "source_files": [
+        "quotation_005.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[베트남] 하노이 롯데 호텔 하노이 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "베트남",
+      "city": "하노이",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-20",
+      "end_date": "2026-01-23",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2420000,
+      "price_child": 1936000,
+      "price_infant": 242000,
+      "price_net": 1694000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-하노이 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>하노이의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "롯데 호텔 하노이",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "스카이 레이크 리조트",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "반트리 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "킹스 아일랜드 골프",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-20",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "하노이 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-21",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "스카이 레이크 리조트 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-22",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "반트리 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-23",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "하노이 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.906597",
+      "updated_at": "2025-12-13T15:15:47.906597",
+      "source_files": [
+        "quotation_006.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[베트남] 다낭 빈펄 럭셔리 다낭 2박 3일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "베트남",
+      "city": "다낭",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-02-21",
+      "end_date": "2026-02-23",
+      "nights": 2,
+      "days": 3
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2300000,
+      "price_child": 1840000,
+      "price_infant": 230000,
+      "price_net": 1610000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-다낭 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>다낭의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "빈펄 럭셔리 다낭",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "다낭 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "바나힐 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-02-21",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "다낭 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-02-22",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "다낭 C.C 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-02-23",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "다낭 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_007.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 마닐라 오카다 마닐라 2박 3일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "필리핀",
+      "city": "마닐라",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2025-12-25",
+      "end_date": "2025-12-27",
+      "nights": 2,
+      "days": 3
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2240000,
+      "price_child": 1792000,
+      "price_infant": 224000,
+      "price_net": 1568000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-마닐라 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>마닐라의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "오카다 마닐라",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "마닐라 사우스우즈",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "셔우드 힐스",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2025-12-25",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "마닐라 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2025-12-26",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "마닐라 사우스우즈 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2025-12-27",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "마닐라 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_008.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[태국] 방콕 샹그릴라 방콕 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "태국",
+      "city": "방콕",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-18",
+      "end_date": "2026-01-21",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2980000,
+      "price_child": 2384000,
+      "price_infant": 298000,
+      "price_net": 2085999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-방콕 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>방콕의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "샹그릴라 방콕",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "니칸티 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "알파인 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "타이 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-18",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "방콕 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-19",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "니칸티 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-20",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "알파인 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-21",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "방콕 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_009.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 마닐라 오카다 마닐라 2박 3일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "필리핀",
+      "city": "마닐라",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-04-11",
+      "end_date": "2026-04-13",
+      "nights": 2,
+      "days": 3
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2990000,
+      "price_child": 2392000,
+      "price_infant": 299000,
+      "price_net": 2092999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-마닐라 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>마닐라의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "오카다 마닐라",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "마닐라 사우스우즈",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "오차드 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-04-11",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "마닐라 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-04-12",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "마닐라 사우스우즈 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-04-13",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "마닐라 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_010.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[베트남] 푸꾸옥 JW 메리어트 푸꾸옥 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "베트남",
+      "city": "푸꾸옥",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-03-19",
+      "end_date": "2026-03-22",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2060000,
+      "price_child": 1648000,
+      "price_infant": 206000,
+      "price_net": 1442000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-푸꾸옥 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>푸꾸옥의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "JW 메리어트 푸꾸옥",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "빈펄 골프 푸꾸옥",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-03-19",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "푸꾸옥 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-03-20",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "빈펄 골프 푸꾸옥 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-03-21",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "푸꾸옥 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-03-22",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "푸꾸옥 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_011.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 후쿠오카 호텔 닛코 후쿠오카 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "일본",
+      "city": "후쿠오카",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-05-12",
+      "end_date": "2026-05-16",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1350000,
+      "price_child": 1080000,
+      "price_infant": 135000,
+      "price_net": 944999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-후쿠오카 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>후쿠오카의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "호텔 닛코 후쿠오카",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "코가 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "후쿠오카 센추리 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "키야 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-05-12",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "후쿠오카 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-05-13",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "코가 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-05-14",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "후쿠오카 센추리 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-05-15",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "키야 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-05-16",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "후쿠오카 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_012.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 도쿄 도쿄 프린스 호텔 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "일본",
+      "city": "도쿄",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-03-26",
+      "end_date": "2026-03-29",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2250000,
+      "price_child": 1800000,
+      "price_infant": 225000,
+      "price_net": 1575000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-도쿄 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>도쿄의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "도쿄 프린스 호텔",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "사야마 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "와카스 골프 링크스",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "도쿄 요미우리 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-03-26",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "도쿄 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-03-27",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "사야마 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-03-28",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "와카스 골프 링크스 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-03-29",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "도쿄 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_013.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 오사카 스위소텔 난카이 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "일본",
+      "city": "오사카",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-03-18",
+      "end_date": "2026-03-21",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2810000,
+      "price_child": 2248000,
+      "price_infant": 281000,
+      "price_net": 1966999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-오사카 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>오사카의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "스위소텔 난카이",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "한나 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "이바라키 춘추 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "오사카 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-03-18",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "오사카 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-03-19",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "한나 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-03-20",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "이바라키 춘추 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-03-21",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "오사카 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_014.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[베트남] 다낭 퓨전 마이아 리조트 3박 4일 힐링 휴양 패키지",
+      "category": "overseas",
+      "product_type": "tour",
+      "country": "베트남",
+      "city": "다낭",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2025-12-27",
+      "end_date": "2025-12-30",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1240000,
+      "price_child": 992000,
+      "price_infant": 124000,
+      "price_net": 868000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-다낭 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>다낭의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "퓨전 마이아 리조트",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": []
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2025-12-27",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "다낭 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2025-12-28",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "다낭 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2025-12-29",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "다낭 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2025-12-30",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "다낭 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.907597",
+      "updated_at": "2025-12-13T15:15:47.907597",
+      "source_files": [
+        "quotation_015.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 보라카이 샹그릴라 보라카이 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "필리핀",
+      "city": "보라카이",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-05",
+      "end_date": "2026-01-09",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2580000,
+      "price_child": 2064000,
+      "price_infant": 258000,
+      "price_net": 1806000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-보라카이 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>보라카이의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "샹그릴라 보라카이",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "페어웨이 앤 블루워터",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-05",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "보라카이 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-06",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "페어웨이 앤 블루워터 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-07",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "보라카이 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-08",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "보라카이 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-01-09",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "보라카이 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.908603",
+      "updated_at": "2025-12-13T15:15:47.908603",
+      "source_files": [
+        "quotation_016.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[태국] 방콕 시암 켐핀스키 2박 3일 힐링 휴양 패키지",
+      "category": "overseas",
+      "product_type": "tour",
+      "country": "태국",
+      "city": "방콕",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-02-05",
+      "end_date": "2026-02-07",
+      "nights": 2,
+      "days": 3
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 560000,
+      "price_child": 448000,
+      "price_infant": 56000,
+      "price_net": 392000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-방콕 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>방콕의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "시암 켐핀스키",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": []
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-02-05",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "방콕 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-02-06",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "방콕 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-02-07",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "방콕 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.908624",
+      "updated_at": "2025-12-13T15:15:47.908624",
+      "source_files": [
+        "quotation_017.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[태국] 방콕 반얀트리 방콕 3박 4일 힐링 휴양 패키지",
+      "category": "overseas",
+      "product_type": "tour",
+      "country": "태국",
+      "city": "방콕",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2025-12-28",
+      "end_date": "2025-12-31",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1240000,
+      "price_child": 992000,
+      "price_infant": 124000,
+      "price_net": 868000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-방콕 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>방콕의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "반얀트리 방콕",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": []
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2025-12-28",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "방콕 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2025-12-29",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "방콕 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2025-12-30",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "방콕 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2025-12-31",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "방콕 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "draft",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.908624",
+      "updated_at": "2025-12-13T15:15:47.908624",
+      "source_files": [
+        "quotation_018.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 도쿄 도쿄 프린스 호텔 4박 5일 힐링 휴양 패키지",
+      "category": "overseas",
+      "product_type": "tour",
+      "country": "일본",
+      "city": "도쿄",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-01-09",
+      "end_date": "2026-01-13",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1710000,
+      "price_child": 1368000,
+      "price_infant": 171000,
+      "price_net": 1197000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-도쿄 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>도쿄의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "도쿄 프린스 호텔",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": []
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-01-09",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "도쿄 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-01-10",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "도쿄 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-01-11",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "도쿄 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-01-12",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "sightseeing",
+            "title": "도쿄 시내 주요 명소 관광",
+            "description": "가이드와 함께하는 시티 투어"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-01-13",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "도쿄 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.908624",
+      "updated_at": "2025-12-13T15:15:47.908624",
+      "source_files": [
+        "quotation_019.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[필리핀] 클락 메리어트 클락 3박 4일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "필리핀",
+      "city": "클락",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-06-11",
+      "end_date": "2026-06-14",
+      "nights": 3,
+      "days": 4
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 1760000,
+      "price_child": 1408000,
+      "price_infant": 176000,
+      "price_net": 1232000
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-클락 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>클락의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "메리어트 클락",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "썬밸리 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "미모사 골프 코스",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "루이시타 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-06-11",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "클락 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-06-12",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "썬밸리 C.C 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-06-13",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "미모사 골프 코스 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-06-14",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "클락 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "status": "published",
+      "version": "1.0",
+      "created_at": "2025-12-13T15:15:47.908624",
+      "updated_at": "2025-12-13T15:15:47.908624",
+      "source_files": [
+        "quotation_020.pdf"
+      ]
+    },
+    "info": {
+      "product_name": "[일본] 삿포로 JR 타워 호텔 닛코 4박 5일 명품 골프 투어",
+      "category": "overseas",
+      "product_type": "golf",
+      "country": "일본",
+      "city": "삿포로",
+      "departure_point": "ICN/GMP",
+      "thumbnail_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    "schedule": {
+      "start_date": "2026-03-01",
+      "end_date": "2026-03-05",
+      "nights": 4,
+      "days": 5
+    },
+    "pricing": {
+      "currency": "KRW",
+      "price_adult": 2930000,
+      "price_child": 2344000,
+      "price_infant": 293000,
+      "price_net": 2050999
+    },
+    "details": {
+      "flight_summary": "대한항공/아시아나 인천-삿포로 왕복",
+      "inclusions": [
+        "왕복 항공권",
+        "전 일정 특급 호텔",
+        "조식 및 석식",
+        "여행자 보험"
+      ],
+      "exclusions": [
+        "개인 경비",
+        "매너팁",
+        "중식"
+      ],
+      "special_notes": [
+        "여권 유효기간 6개월 이상 필수"
+      ],
+      "content_html": "<p>삿포로의 아름다운 풍경과 함께하는 럭셔리 여행입니다.</p>"
+    },
+    "resources": {
+      "hotels": [
+        {
+          "name": "JR 타워 호텔 닛코",
+          "grade": "5성급",
+          "description": "최고급 시설과 서비스를 자랑하는 특급 호텔",
+          "check_in": "15:00",
+          "check_out": "11:00",
+          "website": "www.hotel-example.com",
+          "image_url": "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "golf_courses": [
+        {
+          "name": "삿포로 국제 C.C",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "해피 밸리 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "name": "홋카이도 클래식 골프 클럽",
+          "hole_info": "18홀 / 72파",
+          "description": "국제 규격의 명문 코스",
+          "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "date": "2026-03-01",
+        "activities": [
+          {
+            "time": "10:00",
+            "type": "flight",
+            "title": "인천 국제공항 출발",
+            "description": "설레는 여행의 시작"
+          },
+          {
+            "time": "14:00",
+            "type": "transport",
+            "title": "삿포로 공항 도착 및 이동",
+            "description": "가이드 미팅 후 호텔로 이동"
+          },
+          {
+            "time": "16:00",
+            "type": "hotel",
+            "title": "호텔 체크인 및 휴식",
+            "description": "자유 시간"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 2,
+        "date": "2026-03-02",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "삿포로 국제 C.C 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 3,
+        "date": "2026-03-03",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "해피 밸리 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 4,
+        "date": "2026-03-04",
+        "activities": [
+          {
+            "time": "08:00",
+            "type": "golf",
+            "title": "홋카이도 클래식 골프 클럽 18홀 라운딩",
+            "description": "쾌적한 라운딩을 즐기세요"
+          },
+          {
+            "time": "14:00",
+            "type": "other",
+            "title": "오후 자유 일정",
+            "description": "스파 또는 쇼핑"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      },
+      {
+        "day": 5,
+        "date": "2026-03-05",
+        "activities": [
+          {
+            "time": "09:00",
+            "type": "transport",
+            "title": "호텔 체크아웃 및 공항 이동",
+            "description": "아쉬운 작별"
+          },
+          {
+            "time": "12:00",
+            "type": "flight",
+            "title": "삿포로 출발",
+            "description": "인천으로 향발"
+          }
+        ],
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "현지식",
+          "dinner": "특식"
+        }
+      }
+    ]
+  }
+]
