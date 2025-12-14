@@ -15,10 +15,12 @@ from datetime import datetime
 import google.generativeai as genai
 
 # RAG Engine (Import if available)
-try:
-    from services.rag_service import rag_engine
-except ImportError:
-    rag_engine = None
+
+from services.rag_service import add_product_to_vector_db
+# [핵심] 서비스 모듈 임포트
+from services.rag_service import search_best_products
+from services.ai_service import generate_answer
+
 
 bp = Blueprint('admin', __name__)
 
@@ -211,83 +213,103 @@ def settings_page():
 
 # --- API Routes ---
 
-@bp.route('/api/product/analyze', methods=['POST'])
-def analyze_product():
-    if 'product_file' not in request.files:
-        return jsonify({"error": "No product_file provided"}), 400
-    product_file = request.files['product_file']
-    filename = product_file.filename
-    if filename == '':
-        return jsonify({"error": "No selected file"}), 400
-
-    # ... (기존 검증 로직 등 유지) ...
-
-    # Simulate DB save
-    try:
-        db = SessionLocal()
-        # [수정] Product(models) -> ProductTable(schema) 교체
-        product = ProductTable(
-            product_name=filename.split('.')[0],
-            status='draft',
-            details={"note": "Analyzed from file"}  # details_json 컬럼 없음 -> details(JSON) 컬럼 사용
-        )
-        db.add(product)
-        db.commit()
-        return jsonify({"status": "success", "data": {"product_info": {"product_name": product.product_name}}})
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
-    finally:
-        db.close()
-
-
-@bp.route('/api/product/save', methods=['POST'])
-def save_product():
-    data = request.json
-    try:
-        db = SessionLocal()
-        # [수정] Product(models) -> ProductTable(schema) 교체
-        product = ProductTable(
-            product_name=data.get('product_name', 'No Name'),
-            status=data.get('status', 'draft'),
-            details=data.get('details', {})
-        )
-        db.add(product)
-        db.commit()
-        return jsonify({"status": "success", "product_id": product.id}), 201
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
-    finally:
-        db.close()
+# @bp.route('/api/product/analyze', methods=['POST'])
+# def analyze_product():
+#     if 'product_file' not in request.files:
+#         return jsonify({"error": "No product_file provided"}), 400
+#     product_file = request.files['product_file']
+#     filename = product_file.filename
+#     if filename == '':
+#         return jsonify({"error": "No selected file"}), 400
+#
+#     # ... (기존 검증 로직 등 유지) ...
+#
+#     # Simulate DB save
+#     try:
+#         db = SessionLocal()
+#         # [수정] Product(models) -> ProductTable(schema) 교체
+#         product = ProductTable(
+#             product_name=filename.split('.')[0],
+#             status='draft',
+#             details={"note": "Analyzed from file"}  # details_json 컬럼 없음 -> details(JSON) 컬럼 사용
+#         )
+#         db.add(product)
+#         db.commit()
+#         return jsonify({"status": "success", "data": {"product_info": {"product_name": product.product_name}}})
+#     except Exception as e:
+#         return jsonify({"status": "error", "message": str(e)}), 500
+#     finally:
+#         db.close()
+#
+#
+# @bp.route('/api/product/save', methods=['POST'])
+# def save_product():
+#     data = request.json
+#     try:
+#         db = SessionLocal()
+#         # [수정] Product(models) -> ProductTable(schema) 교체
+#         product = ProductTable(
+#             product_name=data.get('product_name', 'No Name'),
+#             status=data.get('status', 'draft'),
+#             details=data.get('details', {})
+#         )
+#         db.add(product)
+#         db.commit()
+#
+#         # ==========================================================
+#         # [추가] RAG 벡터 DB 업데이트 로직 (안전장치)
+#         # ==========================================================
+#         try:
+#             # 딕셔너리 형태로 전달
+#             rag_data = {
+#                 "info": {"product_name": product.product_name},
+#                 "pricing": {"price_adult": 0},  # 필수 필드 없을 경우 대비 기본값 처리 필요
+#                 "details": product.details,
+#                 "itinerary": []
+#             }
+#             # 들어오는 data 구조가 JSON 스키마와 다를 수 있으므로,
+#             # data가 완벽한 구조라면 add_product_to_vector_db(data)를 바로 써도 됨.
+#             add_product_to_vector_db(data)
+#             print(f"🤖 [RAG] Admin Route: 벡터 DB 업데이트 완료")
+#         except Exception as rag_e:
+#             print(f"⚠️ [RAG Error] {rag_e}")
+#         # ==========================================================
+#
+#         return jsonify({"status": "success", "product_id": product.id}), 201
+#     except Exception as e:
+#         return jsonify({"status": "error", "message": str(e)}), 500
+#     finally:
+#         db.close()
 
 
 @bp.route('/api/chat', methods=['POST'])
 def chat():
-    # [주의] ChatLog 테이블이 schema.py에 없으므로, 에러 방지를 위해 기능을 임시로 막음
-    return jsonify({'reply': '현재 채팅 로그 기능은 DB 구조 개선 중입니다.'})
-
-    # 아래는 기존 코드 (ChatLog 모델 복구 전까지 주석 처리)
     """
-    data = request.json
-    user_message = data.get('message', '')
-    session_id = data.get('session_id')
+    관리자용 챗봇 테스트 API
+    (DB 로그 저장은 스키마 수정 전까지 보류하고, RAG 답변 기능만 활성화)
+    """
+    data = request.get_json()
+    user_message = data.get('message')
 
     if not user_message:
         return jsonify({'reply': '메시지를 입력해주세요.'}), 400
 
-    db = SessionLocal()
     try:
-        # ChatLog 모델이 없으므로 에러 발생 가능
-        # ... 
-        return jsonify({'reply': reply_text})
-    finally:
-        db.close()
-    """
+        # 1. RAG 검색
+        retrieved_products = search_best_products(user_message, top_k=3)
 
+        # 2. AI 답변 생성
+        ai_reply = generate_answer(user_message, retrieved_products)
 
-@bp.route('/api/chat/sessions', methods=['GET'])
-def get_chat_sessions():
-    # [주의] 내부 import 제거 및 빈 리스트 반환
-    # from models import ChatLog (삭제됨)
-    # from services.db_connect import SessionLocal, func
-    return jsonify([])
+        # [참고] 관리자 모드이므로 검색된 근거(소스)도 같이 보여주면 좋음 (선택사항)
+        sources = [p['product_name'] for p in retrieved_products]
+
+        return jsonify({
+            'reply': ai_reply,
+            'sources': sources
+        })
+
+    except Exception as e:
+        print(f"❌ [Admin Chat Error] {e}")
+        return jsonify({'reply': '에러가 발생했습니다.'}), 500
 

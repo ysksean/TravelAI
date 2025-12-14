@@ -1,163 +1,177 @@
-<div id="guest-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-    <!-- Chat Button -->
-    <button id="guestChatToggle"
-        class="w-14 h-14 bg-indigo-600 rounded-full shadow-lg flex items-center justify-center text-white hover:bg-indigo-700 transition-all hover:scale-110 focus:outline-none">
-        <i class="fas fa-comment-dots text-2xl"></i>
-    </button>
+<div id="adminChatWidget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
 
-    <!-- Chat Container -->
-    <div id="guestChatContainer"
-        class="hidden mt-4 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col transition-all origin-bottom-right transform scale-95 opacity-0 pb-20 sm:pb-0"
-        style="height: 500px; max-height: 80vh;">
-        <!-- Header -->
-        <div class="bg-indigo-600 p-4 text-white flex justify-between items-center shadow-md shrink-0">
+    <div id="chatWindow" class="hidden w-96 h-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
+        <div class="bg-slate-800 p-4 flex justify-between items-center text-white">
             <div class="flex items-center gap-2">
-                <i class="fas fa-robot"></i>
-                <span class="font-bold">?¬í ?ë´ ë´?/span>
+                <i data-lucide="bot" class="w-5 h-5"></i>
+                <span class="font-bold">Travel AI (관리자용)</span>
             </div>
-            <button id="guestChatClose" class="text-white hover:text-indigo-200">
-                <i class="fas fa-times"></i>
+            <button onclick="toggleChat()" class="text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
         </div>
 
-        <!-- Messages Area -->
-        <div id="guestChatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50">
-            <div class="flex justify-start animate-fade-in-up">
-                <div
-                    class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800">
-                    ?ë?ì¸?? ë¬´ì???ì??ë¦´ê¹ì?
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+            <div class="flex items-start gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">AI</div>
+                <div class="flex flex-col gap-1 w-full max-w-[320px]">
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm font-semibold text-gray-900">Travel AI</span>
+                        <span class="text-sm font-normal text-gray-500">Just now</span>
+                    </div>
+                    <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-white rounded-e-xl rounded-es-xl shadow-sm">
+                        <p class="text-sm font-normal text-gray-900">
+                            관리자님, 안녕하세요. 👋<br>
+                            DB에 등록된 여행 상품에 대해 질문해 주시면 테스트 답변을 드립니다.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Input Area -->
-        <div class="p-3 bg-white border-t border-gray-100 shrink-0">
-            <div
-                class="flex bg-gray-100 rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
-                <input type="text" id="guestChatInput" placeholder="ë©ìì§ ?ë ¥..."
-                    class="flex-1 bg-transparent border-none focus:ring-0 text-sm outline-none">
-                <button id="guestChatSend" class="text-indigo-600 hover:text-indigo-800 pl-2">
-                    <i class="fas fa-paper-plane"></i>
+        <div class="p-4 bg-white border-t border-slate-100">
+            <form id="chatForm" onsubmit="sendMessage(event)" class="flex items-center gap-2">
+                <input type="text" id="chatInput"
+                    class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-sm transition-all"
+                    placeholder="질문을 입력하세요..." autocomplete="off">
+                <button type="submit"
+                    class="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i data-lucide="send-horizontal" class="w-5 h-5"></i>
                 </button>
-            </div>
+            </form>
         </div>
     </div>
+
+    <button onclick="toggleChat()"
+        class="w-14 h-14 bg-slate-800 hover:bg-slate-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-square" class="w-6 h-6 group-hover:hidden transition-all"></i>
+        <i data-lucide="chevron-down" class="w-6 h-6 hidden group-hover:block transition-all"></i>
+    </button>
 </div>
 
 <script>
-    (function () {
-        // 1. Session & UUID Logic (Future Proofing)
-        function generateUUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
+    // 채팅창 토글 함수
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.classList.toggle('hidden');
+        if (!chatWindow.classList.contains('hidden')) {
+            document.getElementById('chatInput').focus();
+            scrollToBottom();
+        }
+    }
+
+    // 스크롤 바닥으로 이동
+    function scrollToBottom() {
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 메시지 전송 함수
+    async function sendMessage(e) {
+        e.preventDefault();
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+        const chatMessages = document.getElementById('chatMessages');
+        const submitBtn = document.querySelector('#chatForm button');
+
+        if (!message) return;
+
+        // 1. 사용자 메시지 UI 추가
+        addMessage(message, 'user');
+        input.value = '';
+        input.disabled = true;
+        submitBtn.disabled = true;
+
+        // 2. 로딩 표시
+        const loadingId = addLoading();
+
+        try {
+            // [API 호출] Admin Route -> /admin/api/chat
+            const response = await fetch('/admin/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
             });
-        }
 
-        let sessionId = localStorage.getItem('chat_session_id');
-        if (!sessionId) {
-            sessionId = generateUUID();
-            localStorage.setItem('chat_session_id', sessionId);
-        }
+            const data = await response.json();
 
-        // Simple Guest Name
-        const userName = 'Guest-' + sessionId.substring(0, 4);
+            // 로딩 제거
+            removeLoading(loadingId);
 
-        // 2. UI Logic
-        const toggleBtn = document.getElementById('guestChatToggle');
-        const closeBtn = document.getElementById('guestChatClose');
-        const container = document.getElementById('guestChatContainer');
-        const messagesArea = document.getElementById('guestChatMessages');
-        const input = document.getElementById('guestChatInput');
-        const sendBtn = document.getElementById('guestChatSend');
-
-        function toggleChat() {
-            if (container.classList.contains('hidden')) {
-                container.classList.remove('hidden');
-                requestAnimationFrame(() => {
-                    container.classList.remove('scale-95', 'opacity-0');
-                });
+            if (response.ok) {
+                // 3. AI 답변 UI 추가 (소스 포함)
+                addMessage(data.reply, 'ai', data.sources);
             } else {
-                container.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => container.classList.add('hidden'), 200);
+                addMessage("오류가 발생했습니다: " + (data.reply || "Unknown Error"), 'ai');
             }
+
+        } catch (error) {
+            removeLoading(loadingId);
+            console.error('Chat Error:', error);
+            addMessage("서버 연결에 실패했습니다.", 'ai');
+        } finally {
+            input.disabled = false;
+            submitBtn.disabled = false;
+            input.focus();
+        }
+    }
+
+    // UI에 메시지 그리기
+    function addMessage(text, sender, sources = []) {
+        const chatMessages = document.getElementById('chatMessages');
+        const isUser = sender === 'user';
+
+        let contentHtml = `<p class="text-sm font-normal ${isUser ? 'text-white' : 'text-gray-900'}">${text.replace(/\n/g, '<br>')}</p>`;
+
+        // Admin용 추가 기능: 참고 자료 표시
+        if (!isUser && sources && sources.length > 0) {
+            contentHtml += `
+                <div class="mt-2 pt-2 border-t border-gray-100">
+                    <p class="text-xs text-gray-400 font-bold mb-1">🔍 참고한 상품:</p>
+                    <ul class="text-xs text-indigo-500 list-disc list-inside">
+                        ${sources.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
         }
 
-        toggleBtn.addEventListener('click', toggleChat);
-        closeBtn.addEventListener('click', toggleChat);
+        const html = `
+            <div class="flex items-start gap-2.5 ${isUser ? 'justify-end' : ''}">
+                ${!isUser ? '<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">AI</div>' : ''}
+                <div class="flex flex-col gap-1 w-full max-w-[320px]">
+                    <div class="flex flex-col leading-1.5 p-4 border-gray-200
+                        ${isUser ? 'bg-slate-800 rounded-s-xl rounded-ee-xl text-white' : 'bg-white rounded-e-xl rounded-es-xl shadow-sm'}">
+                        ${contentHtml}
+                    </div>
+                </div>
+                ${isUser ? '<div class="w-8 h-8 rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-bold text-xs">ME</div>' : ''}
+            </div>
+        `;
 
-        // 3. Send Message Logic
-        async function sendMessage() {
-            const text = input.value.trim();
-            if (!text) return;
+        chatMessages.insertAdjacentHTML('beforeend', html);
+        scrollToBottom();
 
-            // Append User Message
-            appendMessage(text, 'user');
-            input.value = '';
+        // 아이콘 리로드 (필요시)
+        if(window.lucide) lucide.createIcons();
+    }
 
-            // Prepare Payload
-            const payload = {
-                message: text,
-                session_id: sessionId,
-                user_type: 'guest',
-                user_name: userName
-            };
+    function addLoading() {
+        const id = 'loading-' + Date.now();
+        const html = `
+            <div id="${id}" class="flex items-start gap-2.5 animate-pulse">
+                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">...</div>
+                <div class="bg-white p-3 rounded-e-xl rounded-es-xl shadow-sm">
+                    <span class="text-xs text-gray-400">답변 생성 중...</span>
+                </div>
+            </div>
+        `;
+        document.getElementById('chatMessages').insertAdjacentHTML('beforeend', html);
+        scrollToBottom();
+        return id;
+    }
 
-            // Add Loading
-            const loadingId = appendLoading();
-
-            try {
-                const response = await fetch('/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const data = await response.json();
-
-                // Remove Loading
-                const loader = document.getElementById(loadingId);
-                if (loader) loader.remove();
-
-                // Append Bot Response
-                appendMessage(data.reply, 'bot');
-
-            } catch (err) {
-                console.error(err);
-                const loader = document.getElementById(loadingId);
-                if (loader) loader.remove();
-                appendMessage('?¤ë¥ê° ë°ì?ìµ?ë¤.', 'bot');
-            }
-        }
-
-        function appendMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = `flex w-full ${sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in-up`;
-
-            const inner = sender === 'user'
-                ? `<div class="bg-indigo-600 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-sm max-w-[80%]">${text}</div>`
-                : `<div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800 max-w-[80%]">${text}</div>`;
-
-            div.innerHTML = inner;
-            messagesArea.appendChild(div);
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-        }
-
-        function appendLoading() {
-            const id = 'loading-' + Date.now();
-            const div = document.createElement('div');
-            div.id = id;
-            div.className = 'flex justify-start animate-fade-in-up';
-            div.innerHTML = `<div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-400">...</div>`;
-            messagesArea.appendChild(div);
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-            return id;
-        }
-
-        sendBtn.addEventListener('click', sendMessage);
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
-        });
-
-    })();
+    function removeLoading(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
 </script>

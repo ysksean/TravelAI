@@ -6,7 +6,8 @@ from schema.schema import ProductMasterJSON, ProductTable
 import traceback
 import json
 import sys  # [추가] 로그 강제 출력을 위한 모듈
-
+# RAG 서비스 함수 임포트
+from services.rag_service import add_product_to_vector_db
 product_bp = Blueprint('product_bp', __name__)
 
 
@@ -92,6 +93,20 @@ def create_product():
         session.refresh(new_product)
 
         print(f"🎉 [API Success] DB Inserted! ID: {new_product.id}", file=sys.stdout, flush=True)
+
+        # ==========================================================
+        # [추가 2] RAG 벡터 DB 업데이트 로직
+        # ==========================================================
+        print(f"🤖 [RAG] 벡터 DB 업데이트 시작...", file=sys.stdout, flush=True)
+        try:
+            # Pydantic 모델을 딕셔너리로 변환하여 서비스에 전달
+            product_dict = validated_data.model_dump(mode='json') if hasattr(validated_data,
+                                                                             'model_dump') else validated_data.dict()
+            add_product_to_vector_db(product_dict)
+        except Exception as rag_error:
+            # RAG 실패가 DB 저장을 취소시키지 않도록 예외 처리만 하고 로그 남김
+            print(f"⚠️ [RAG Error] 벡터 DB 업데이트 중 오류 발생 (DB 저장은 성공함): {rag_error}", file=sys.stdout, flush=True)
+
         print("=" * 50 + "\n", file=sys.stdout)
 
         return jsonify({

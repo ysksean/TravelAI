@@ -1,0 +1,227 @@
+{
+  "meta": {
+    "status": "draft",
+    "version": "1.1",
+    "created_at": "2025-12-14T09:00:00Z",
+    "updated_at": "2025-12-14T09:00:00Z",
+    "source_files": [
+      "quotation_danang_winter.pdf"
+    ]
+  },
+  "info": {
+    "product_name": "다낭/호이안 명문 3색 골프 3박 5일 패키지",
+    "category": "overseas",
+    "product_type": "golf",
+    "country": "베트남",
+    "city": "다낭",
+    "departure_point": "ICN",
+    "thumbnail_url": "https://example.com/images/danang_thumb.jpg",
+    "images": [
+      "https://example.com/images/danang_main.jpg",
+      "https://example.com/images/hoian_night.jpg",
+      "https://example.com/images/bana_hills_golf.jpg"
+    ]
+  },
+  "schedule": {
+    "start_date": "2026-01-10",
+    "end_date": "2026-01-14",
+    "nights": 3,
+    "days": 5
+  },
+  "pricing": {
+    "currency": "KRW",
+    "price_adult": 1290000,
+    "price_child": 990000,
+    "price_infant": 150000,
+    "price_net": 950000
+  },
+  "details": {
+    "flight_summary": "진에어 (LJ079/LJ080) 인천-다낭 왕복",
+    "inclusions": [
+      "왕복 항공권 및 텍스",
+      "하얏트 리젠시 다낭 3박 (2인 1실)",
+      "전 일정 조식 및 석식 2회",
+      "그린피+캐디피+전동카트 (54홀)",
+      "현지 한국인 가이드 및 전용 차량"
+    ],
+    "exclusions": [
+      "캐디팁 (18홀당 $15)",
+      "중식 (클럽식)",
+      "매너팁 및 개인 경비"
+    ],
+    "special_notes": [
+      "쇼핑센터 방문 2회 (라텍스, 노니)",
+      "우천 시 라운딩 취소될 경우 마사지로 대체 가능",
+      "여권 유효기간 6개월 이상 필수"
+    ],
+    "content_html": "<h3>동양의 하와이, 다낭에서 즐기는 럭셔리 골프!</h3><p>다낭 최고의 명문 골프장 3곳을 모두 경험할 수 있는 기회입니다.</p><img src='https://example.com/images/danang_map.jpg'><p>라운딩 후에는 유네스코 세계문화유산 호이안 야경 투어가 포함되어 있습니다.</p>"
+  },
+  "resources": {
+    "hotels": [
+      {
+        "name": "하얏트 리젠시 다낭 리조트",
+        "grade": "5성급",
+        "description": "논누옥 해변에 위치한 럭셔리 리조트, 오션뷰 객실",
+        "check_in": "15:00",
+        "check_out": "12:00",
+        "website": "www.hyatt.com/danang",
+        "image_url": "https://example.com/images/hyatt_danang.jpg"
+      }
+    ],
+    "golf_courses": [
+      {
+        "name": "BRG 다낭 C.C",
+        "hole_info": "18홀 / 72파",
+        "description": "그렉 노만 설계, 링크스 스타일의 정통 코스",
+        "image_url": "https://example.com/images/brg_cc.jpg"
+      },
+      {
+        "name": "몽고메리 링크스",
+        "hole_info": "18홀 / 72파",
+        "description": "콜린 몽고메리 설계, 다낭을 대표하는 명문 코스",
+        "image_url": "https://example.com/images/montgomerie.jpg"
+      },
+      {
+        "name": "바나힐 G.C",
+        "hole_info": "18홀 / 72파",
+        "description": "산악형 코스로 시원한 기온과 야간 라운딩 가능",
+        "image_url": "https://example.com/images/banahills_gc.jpg"
+      }
+    ]
+  },
+  "itinerary": [
+    {
+      "day": 1,
+      "date": "2026-01-10",
+      "activities": [
+        {
+          "time": "20:30",
+          "type": "flight",
+          "title": "인천 국제공항 출발",
+          "description": "진에어 LJ079편 탑승",
+          "transport": "진에어",
+          "location": "인천"
+        },
+        {
+          "time": "23:40",
+          "type": "arrival",
+          "title": "다낭 국제공항 도착",
+          "description": "가이드 미팅 후 호텔 이동",
+          "location": "다낭"
+        }
+      ],
+      "meals": {
+        "breakfast": "불포함",
+        "lunch": "불포함",
+        "dinner": "불포함"
+      }
+    },
+    {
+      "day": 2,
+      "date": "2026-01-11",
+      "activities": [
+        {
+          "time": "08:00",
+          "type": "golf",
+          "title": "BRG 다낭 C.C 18홀",
+          "description": "링크스 코스 라운딩",
+          "location": "BRG C.C"
+        },
+        {
+          "time": "18:00",
+          "type": "sightseeing",
+          "title": "호이안 야경 투어",
+          "description": "구시가지 관광 및 소원초 띄우기",
+          "location": "호이안"
+        }
+      ],
+      "meals": {
+        "breakfast": "호텔식",
+        "lunch": "클럽식",
+        "dinner": "현지식(반세오)"
+      }
+    },
+    {
+      "day": 3,
+      "date": "2026-01-12",
+      "activities": [
+        {
+          "time": "08:00",
+          "type": "golf",
+          "title": "몽고메리 링크스 18홀",
+          "description": "전략적인 코스 공략",
+          "location": "몽고메리 링크스"
+        },
+        {
+          "time": "16:00",
+          "type": "other",
+          "title": "자유시간 및 휴식",
+          "description": "리조트 수영장 및 개인 정비",
+          "location": "호텔"
+        }
+      ],
+      "meals": {
+        "breakfast": "호텔식",
+        "lunch": "클럽식",
+        "dinner": "한식(삼겹살)"
+      }
+    },
+    {
+      "day": 4,
+      "date": "2026-01-13",
+      "activities": [
+        {
+          "time": "08:00",
+          "type": "golf",
+          "title": "바나힐 G.C 18홀",
+          "description": "마지막 날 시원한 산악 코스",
+          "location": "바나힐 C.C"
+        },
+        {
+          "time": "14:00",
+          "type": "shopping",
+          "title": "쇼핑센터 방문",
+          "description": "라텍스, 잡화점 방문",
+          "location": "시내"
+        },
+        {
+          "time": "22:00",
+          "type": "transport",
+          "title": "공항 이동",
+          "description": "가이드 샌딩",
+          "location": "다낭 공항"
+        }
+      ],
+      "meals": {
+        "breakfast": "호텔식",
+        "lunch": "클럽식",
+        "dinner": "불포함"
+      }
+    },
+    {
+      "day": 5,
+      "date": "2026-01-14",
+      "activities": [
+        {
+          "time": "01:00",
+          "type": "flight",
+          "title": "다낭 출발",
+          "description": "진에어 LJ080편",
+          "location": "다낭"
+        },
+        {
+          "time": "07:30",
+          "type": "arrival",
+          "title": "인천 도착",
+          "description": "안녕히 가십시오",
+          "location": "인천"
+        }
+      ],
+      "meals": {
+        "breakfast": "기내식",
+        "lunch": "불포함",
+        "dinner": "불포함"
+      }
+    }
+  ]
+}

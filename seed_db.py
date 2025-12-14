@@ -4,6 +4,7 @@ import os
 import json
 import random
 from datetime import datetime, timedelta
+from services.rag_service import add_product_to_vector_db
 
 # 프로젝트 루트 경로 설정 (flask_web 폴더 안에서 실행된다고 가정)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -258,6 +259,14 @@ def seed_database():
     for i in range(1, 21):
         p_data = create_product_json(i)
         products_to_insert.append(p_data)
+
+        # [추가] 벡터 DB에도 등록! (이 한 줄이면 됩니다)
+        try:
+            add_product_to_vector_db(p_data)
+            print(f"   ↳ [RAG] 벡터 등록 완료: {p_data['info']['product_name']}")
+        except Exception as e:
+            print(f"   ↳ ⚠️ [RAG Error] {e}")
+
 
         # DB 객체 변환 (Flattening)
         new_product = ProductTable(

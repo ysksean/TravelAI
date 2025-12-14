@@ -7,6 +7,10 @@ from sqlalchemy import desc, or_, func
 import os
 import re
 
+# [핵심] 우리가 만든 서비스 모듈 임포트
+from services.rag_service import search_best_products
+from services.ai_service import generate_answer
+
 # Blueprint 설정
 bp = Blueprint('customer', __name__, template_folder='../templates/customer', static_folder='../static/customer')
 
@@ -156,32 +160,25 @@ def product_detail(product_id):
 @bp.route('/chat', methods=['POST'])
 def chat():
     """
-    고객용 챗봇 API - /customer/chat
+    고객용 챗봇 API
     """
-    data = request.json
+    data = request.get_json()
     user_message = data.get('message')
-    session_id = data.get('session_id')
 
     if not user_message:
         return jsonify({'reply': '메시지를 입력해주세요.'}), 400
 
-    # RAG Search
-    context = ""
-    if rag_engine:
-        context = rag_engine.search(user_message)
-
-    # Gemini Call (Simplified)
-    # 실제로는 app.py나 config에서 API Key 관리
-    reply_text = "AI 서비스를 일시적으로 사용할 수 없습니다."
-
     try:
-        if os.getenv('GOOGLE_API_KEY'):
-            genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-            model = genai.GenerativeModel('gemini-pro')
-            prompt = f"Context: {context}\nQuestion: {user_message}\nAnswer in Korean."
-            response = model.generate_content(prompt)
-            reply_text = response.text
-    except Exception as e:
-        print(f"Chat Error: {e}")
+        # 1. RAG 검색 (우리가 만든 함수 호출)
+        # top_k=3 : 가장 연관성 높은 상품 3개 검색
+        retrieved_products = search_best_products(user_message, top_k=3)
 
-    return jsonify({'reply': reply_text})
+        # 2. AI 답변 생성 (우리가 만든 함수 호출)
+        # 검색된 상품 정보를 바탕으로 Gemini가 답변
+        ai_reply = generate_answer(user_message, retrieved_products)
+
+        return jsonify({'reply': ai_reply})
+
+    except Exception as e:
+        print(f"❌ [Customer Chat Error] {e}")
+        return jsonify({'reply': '죄송합니다. 잠시 후 다시 시도해주세요.'}), 500
