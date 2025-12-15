@@ -6,6 +6,7 @@ from services.db_connect import SessionLocal
 # [수정] models 모듈 제거 및 schema.py 연결
 from schema.schema import ProductTable
 # from models import Product, ProductPrice, ProductItinerary, ChatLog  <-- 삭제됨
+from services.chat_service import get_room_list, get_chat_logs
 
 import os
 import json
@@ -210,76 +211,20 @@ def customer_list():
 def settings_page():
     return render_template('admin/settings.html', active_page='settings')
 
+# 채팅
+admin_bp = Blueprint('chat_admin', __name__, url_prefix='/api/admin')
 
-# --- API Routes ---
+@admin_bp.route('/rooms')
+def route_get_rooms():
+    """최종 호출 주소: /api/admin/rooms"""
+    rooms = get_room_list()
+    return jsonify(rooms)
 
-# @bp.route('/api/product/analyze', methods=['POST'])
-# def analyze_product():
-#     if 'product_file' not in request.files:
-#         return jsonify({"error": "No product_file provided"}), 400
-#     product_file = request.files['product_file']
-#     filename = product_file.filename
-#     if filename == '':
-#         return jsonify({"error": "No selected file"}), 400
-#
-#     # ... (기존 검증 로직 등 유지) ...
-#
-#     # Simulate DB save
-#     try:
-#         db = SessionLocal()
-#         # [수정] Product(models) -> ProductTable(schema) 교체
-#         product = ProductTable(
-#             product_name=filename.split('.')[0],
-#             status='draft',
-#             details={"note": "Analyzed from file"}  # details_json 컬럼 없음 -> details(JSON) 컬럼 사용
-#         )
-#         db.add(product)
-#         db.commit()
-#         return jsonify({"status": "success", "data": {"product_info": {"product_name": product.product_name}}})
-#     except Exception as e:
-#         return jsonify({"status": "error", "message": str(e)}), 500
-#     finally:
-#         db.close()
-#
-#
-# @bp.route('/api/product/save', methods=['POST'])
-# def save_product():
-#     data = request.json
-#     try:
-#         db = SessionLocal()
-#         # [수정] Product(models) -> ProductTable(schema) 교체
-#         product = ProductTable(
-#             product_name=data.get('product_name', 'No Name'),
-#             status=data.get('status', 'draft'),
-#             details=data.get('details', {})
-#         )
-#         db.add(product)
-#         db.commit()
-#
-#         # ==========================================================
-#         # [추가] RAG 벡터 DB 업데이트 로직 (안전장치)
-#         # ==========================================================
-#         try:
-#             # 딕셔너리 형태로 전달
-#             rag_data = {
-#                 "info": {"product_name": product.product_name},
-#                 "pricing": {"price_adult": 0},  # 필수 필드 없을 경우 대비 기본값 처리 필요
-#                 "details": product.details,
-#                 "itinerary": []
-#             }
-#             # 들어오는 data 구조가 JSON 스키마와 다를 수 있으므로,
-#             # data가 완벽한 구조라면 add_product_to_vector_db(data)를 바로 써도 됨.
-#             add_product_to_vector_db(data)
-#             print(f"🤖 [RAG] Admin Route: 벡터 DB 업데이트 완료")
-#         except Exception as rag_e:
-#             print(f"⚠️ [RAG Error] {rag_e}")
-#         # ==========================================================
-#
-#         return jsonify({"status": "success", "product_id": product.id}), 201
-#     except Exception as e:
-#         return jsonify({"status": "error", "message": str(e)}), 500
-#     finally:
-#         db.close()
+@admin_bp.route('/history/<session_id>')
+def route_get_history(session_id):
+    """최종 호출 주소: /api/admin/history/<session_id>"""
+    logs = get_chat_logs(session_id)
+    return jsonify(logs)
 
 
 @bp.route('/api/chat', methods=['POST'])

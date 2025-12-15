@@ -2,15 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatToggle = document.getElementById('chatToggle');
     const chatSidebar = document.getElementById('chatSidebar');
     const closeChat = document.getElementById('closeChat');
-    const chatRoomList = document.querySelectorAll('.chat-room-item');
     const chatMessagesArea = document.getElementById('chatMessages');
-    const currentChatUser = document.getElementById('currentChatUser');
-    const currentChatStatus = document.getElementById('currentChatStatus');
 
     // Toggle Sidebar
     if (chatToggle && chatSidebar) {
         chatToggle.addEventListener('click', () => {
             chatSidebar.classList.toggle('translate-x-full');
+            if (!chatSidebar.classList.contains('translate-x-full')) {
+                // Fetch immediately when opened
+                fetchChatHistory();
+            }
         });
     }
 
@@ -21,158 +22,200 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Mock Chat Data (Pre-written for demo)
-    const mockMessages = {
-        '홍길동': [
-            { sender: 'user', text: '안녕하세요, 가족 여행 패키지 문의드립니다.', time: '오전 10:30' },
-            { sender: 'admin', text: '네, 안녕하세요! 여행 인원과 원하시는 날짜가 어떻게 되시나요?', time: '오전 10:32' },
-            { sender: 'user', text: '성인 4명이고, 12월 15일 출발 원합니다.', time: '오전 10:33' }
-        ],
-        '김철수': [
-            { sender: 'user', text: '예약 취소 수수료가 어떻게 되나요?', time: '오후 2:15' },
-            { sender: 'admin', text: '출발 7일 전까지는 전액 환불 가능합니다.', time: '오후 2:20' }
-        ],
-        '이영희': [
-            { sender: 'user', text: '입금 확인 부탁드립니다.', time: '어제' }
-        ]
-    };
+    // --- SESSION-BASED CHAT LOGIC ---
+    let currentSessionId = null;
 
-    // Chat Switching Logic
-    chatRoomList.forEach(item => {
-        item.addEventListener('click', function () {
-            // 1. UI Active State Reset
-            chatRoomList.forEach(r => {
-                r.classList.remove('bg-indigo-50/60', 'border-indigo-500');
-                r.classList.add('border-transparent');
+    // 1. Fetch & Render Rooms (Sidebar)
+    async function fetchRooms() {
+        const listContainer = document.querySelector('.chat-room-item')?.parentElement;
+        // Need to find the container. Usually it's the one with .overflow-y-auto inside the sidebar.
+        // Let's assume the structure is preserved.
+        // Best to select the container directly if possible.
+        // 채팅 수정내용
+        let container = document.querySelector('#chatSidebar .overflow-y-auto.custom-scrollbar .space-y-1');
+        if (!container && listContainer) container = listContainer; // Fallback
+        if (!container) return; // Cannot find list container
+
+        try {
+            const res = await fetch('/api/chat/rooms');
+            if (res.ok) {
+                const rooms = await res.json();
+                renderRooms(rooms, container);
+            }
+        } catch (err) {
+            console.error('Failed to fetch rooms:', err);
+        }
+    }
+
+    function renderRooms(rooms, container) {
+        container.innerHTML = ''; // Clear existing
+
+        if (rooms.length === 0) {
+            container.innerHTML = '<div class="p-4 text-center text-gray-400 text-xs">상담 내역이 없습니다.</div>';
+            return;
+        }
+
+        rooms.forEach(room => {
+            const el = document.createElement('div');
+            el.className = 'chat-room-item p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-all border-l-4 border-transparent flex gap-3 group';
+            // Highlight if selected
+            if (room.session_id === currentSessionId) {
+                el.classList.remove('border-transparent');
+                el.classList.add('bg-indigo-50/60', 'border-indigo-500');
+            }
+
+            // Name & Time
+            const displayName = room.user_name || 'Anonymous';
+            let timeStr = '';
+            if (room.last_active) {
+                const date = new Date(room.last_active);
+                // Simple formatting
+                timeStr = date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+            }
+            const initial = displayName.charAt(0);
+            const badgeColor = room.user_type === 'member' ? 'bg-green-100 text-green-600' : 'bg-indigo-100 text-indigo-600';
+
+            el.innerHTML = `
+                <div class="relative">
+                    <div class="w-10 h-10 rounded-full ${badgeColor} flex items-center justify-center font-bold text-sm shadow-sm">${initial}</div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-center mb-0.5">
+                        <span class="font-bold text-gray-800 text-sm room-name truncate">${displayName}</span>
+                        <span class="text-[10px] text-gray-400 font-medium">${timeStr}</span>
+                    </div>
+                    <p class="text-xs text-gray-500 truncate group-hover:text-gray-700">
+                        <span class="bg-gray-100 px-1 rounded text-[10px] mr-1">${room.user_type}</span>
+                        ${room.session_id.substring(0, 8)}...
+                    </p>
+                </div>
+            `;
+
+            el.addEventListener('click', () => {
+                currentSessionId = room.session_id;
+                // Update UI selection immediately
+                document.querySelectorAll('.chat-room-item').forEach(i => {
+                    i.classList.remove('bg-indigo-50/60', 'border-indigo-500');
+                    i.classList.add('border-transparent');
+                });
+                el.classList.remove('border-transparent');
+                el.classList.add('bg-indigo-50/60', 'border-indigo-500');
+
+                // Update Header Info
+                const headerUser = document.getElementById('currentChatUser');
+                if (headerUser) headerUser.textContent = displayName;
+
+                // Load Chat
+                fetchChatHistory();
             });
 
-            // 2. Set Active State
-            this.classList.remove('border-transparent');
-            this.classList.add('bg-indigo-50/60', 'border-indigo-500');
-
-            // 3. Get User Info
-            const userName = this.querySelector('.room-name').textContent;
-
-            // 4. Update Header
-            if (currentChatUser) currentChatUser.textContent = userName;
-            // (Optional) Randomize status
-            if (currentChatStatus) {
-                const isOnline = Math.random() > 0.5;
-                currentChatStatus.innerHTML = isOnline
-                    ? `<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> 온라인`
-                    : `<span class="w-2 h-2 bg-gray-400 rounded-full"></span> 오프라인`;
-                currentChatStatus.className = `text-[11px] ${isOnline ? 'text-green-600' : 'text-gray-500'} flex items-center gap-1.5 font-medium`;
-            }
-
-            // 5. Render Messages
-            if (chatMessagesArea) {
-                chatMessagesArea.innerHTML = ''; // Clear previous
-
-                // Add Date Divider
-                const dateDiv = document.createElement('div');
-                dateDiv.className = 'flex justify-center my-4';
-                dateDiv.innerHTML = `<span class="bg-gray-100 px-4 py-1.5 rounded-full text-[11px] text-gray-500 font-medium shadow-sm">오늘 2023년 12월 10일</span>`;
-                chatMessagesArea.appendChild(dateDiv);
-
-                const messages = mockMessages[userName] || [];
-
-                messages.forEach(msg => {
-                    const isUser = msg.sender === 'user';
-                    const msgWrapper = document.createElement('div');
-                    msgWrapper.className = `flex w-full ${isUser ? 'justify-start' : 'justify-end'} mb-4 animate-fade-in-up`;
-
-                    const innerHTML = isUser ? `
-                        <div class="flex gap-3 max-w-[85%]">
-                            <div class="w-8 h-8 rounded-full bg-slate-200 flex-shrink-0 flex items-center justify-center text-slate-500 text-xs shadow-sm">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <div class="bg-white border border-gray-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800 leading-relaxed">
-                                    ${msg.text}
-                                </div>
-                                <span class="text-[10px] text-gray-400 ml-1">${msg.time}</span>
-                            </div>
-                        </div>
-                    ` : `
-                        <div class="flex flex-col gap-1 items-end max-w-[85%]">
-                            <div class="bg-indigo-600 p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-white leading-relaxed">
-                                ${msg.text}
-                            </div>
-                            <span class="text-[10px] text-gray-400 mr-1 flex items-center gap-1">
-                                ${msg.time} <i class="fas fa-check-double text-indigo-400 text-[8px]"></i>
-                            </span>
-                        </div>
-                    `;
-
-                    msgWrapper.innerHTML = innerHTML;
-                    chatMessagesArea.appendChild(msgWrapper);
-                });
-
-                // Scroll to bottom
-                chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
-            }
+            container.appendChild(el);
         });
-    });
+    }
 
-    // Send Message Logic
-    const chatInput = chatSidebar.querySelector('textarea');
-    // Find the send button (it's the one with the paper-plane icon, usually the last button in that container)
-    const sendBtn = chatSidebar.querySelector('button.bg-indigo-600');
+    // 2. Fetch History (Specific Session)
+    async function fetchChatHistory() {
+        if (!chatMessagesArea) return;
 
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (!message) return;
+        if (!currentSessionId) {
+            chatMessagesArea.innerHTML = `
+                <div class="h-full flex flex-col items-center justify-center text-gray-400 gap-4 opacity-50">
+                    <i class="fas fa-comments text-4xl"></i>
+                    <p class="text-sm">상담 목록에서 대화를 선택해주세요.</p>
+                </div>`; // <-- 이 메시지가 기본 화면이 됩니다.
+            return;
+        }
 
-        // 1. Append User Message
-        const userMsgHTML = `
-            <div class="flex w-full justify-end mb-4 animate-fade-in-up">
-                <div class="flex flex-col gap-1 items-end max-w-[85%]">
-                    <div class="bg-indigo-600 p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-white leading-relaxed">
-                        ${message}
-                    </div>
-                    <span class="text-[10px] text-gray-400 mr-1 flex items-center gap-1">
-                        지금 <i class="fas fa-check text-indigo-400 text-[8px]"></i>
-                    </span>
-                </div>
-            </div>
-        `;
-        chatMessagesArea.insertAdjacentHTML('beforeend', userMsgHTML);
-        chatInput.value = '';
-        chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
+        try {
+            const res = await fetch(`/api/chat/history?session_id=${currentSessionId}`);
+            if (res.ok) {
+                const messages = await res.json();
+                renderMessages(messages);
+            }
+        } catch (err) {
+            console.error('Failed to fetch chat history:', err);
+        }
+    }
 
-        // 2. Mock Response (Timeout)
-        setTimeout(() => {
-            const aiMsgHTML = `
-                <div class="flex w-full justify-start mb-4 animate-fade-in-up">
-                    <div class="flex gap-3 max-w-[85%]">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white text-xs shadow-sm">
-                            <i class="fas fa-robot"></i>
+    // 3. Render Messages (Same Logic)
+    function renderMessages(messages) {
+        chatMessagesArea.innerHTML = ''; // Clear existing
+
+        if (messages.length === 0) {
+            chatMessagesArea.innerHTML = `
+                <div class="h-full flex flex-col items-center justify-center text-gray-400 gap-4 opacity-50">
+                    <i class="fas fa-history text-4xl"></i>
+                    <p class="text-sm">대화 기록이 없습니다.</p>
+                </div>`;
+            return;
+        }
+
+        messages.forEach(msg => {
+            const isUser = msg.sender === 'user';
+            const msgWrapper = document.createElement('div');
+            msgWrapper.className = `flex w-full ${isUser ? 'justify-start' : 'justify-end'} mb-4 animate-fade-in-up`;
+
+            let timeStr = '';
+            if (msg.created_at) {
+                const date = new Date(msg.created_at);
+                timeStr = date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+            }
+
+            let topLabel = '';
+            // Only show detailed label for user, keep simple for bot
+            if (isUser) {
+                topLabel = `<span class="text-[10px] text-gray-500 mb-1 ml-1 block">${msg.user_name}</span>`;
+            } else {
+                topLabel = `<span class="text-[10px] text-gray-500 mb-1 mr-1 block text-right">AI Agent</span>`;
+            }
+
+            const innerHTML = isUser ? `
+                <div class="flex flex-col max-w-[85%]">
+                    ${topLabel}
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600 text-xs shadow-sm">
+                            <i class="fas fa-user"></i>
                         </div>
                         <div class="flex flex-col gap-1">
-                            <div class="bg-white border border-gray-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800 leading-relaxed">
-                                (자동 응답) 죄송합니다. 상담원이 잠시 자리를 비웠습니다. 잠시만 기다려주시면 답변 드리겠습니다.
+                            <div class="bg-indigo-50 border border-indigo-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-800 leading-relaxed">
+                                ${msg.message}
                             </div>
-                            <span class="text-[10px] text-gray-400 ml-1">지금</span>
+                            <span class="text-[10px] text-gray-400 ml-1">${timeStr}</span>
+                        </div>
+                    </div>
+                </div>
+            ` : `
+                 <div class="flex flex-col items-end max-w-[85%]">
+                    ${topLabel}
+                    <div class="flex gap-3 flex-row-reverse">
+                         <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-gray-600 text-xs shadow-sm">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="flex flex-col gap-1 items-end">
+                            <div class="bg-gray-100 p-3 rounded-2xl rounded-tr-none shadow-sm text-sm text-gray-700 leading-relaxed text-right">
+                                ${msg.message}
+                            </div>
+                            <span class="text-[10px] text-gray-400 mr-1 flex items-center gap-1">
+                                ${timeStr} <i class="fas fa-check text-gray-400 text-[8px]"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
             `;
-            chatMessagesArea.insertAdjacentHTML('beforeend', aiMsgHTML);
-            chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
-        }, 1500);
-    }
 
-    if (sendBtn) {
-        sendBtn.addEventListener('click', sendMessage);
-    }
-
-    if (chatInput) {
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-            }
+            msgWrapper.innerHTML = innerHTML;
+            chatMessagesArea.appendChild(msgWrapper);
         });
+        chatMessagesArea.scrollTop = chatMessagesArea.scrollHeight;
     }
 
+    // Init: Fetch Rooms initially
+    fetchRooms();
+    // Poll rooms less frequently
+    setInterval(fetchRooms, 10000);
+
+    // Poll current chat if active
+    setInterval(() => {
+        if (currentSessionId) fetchChatHistory();
+    }, 3000);
 });
