@@ -1,16 +1,14 @@
 <style>
-    /* 챗봇 메시지 내부의 마크다운 태그들이 제대로 보이도록 스타일 지정 */
+    /* 마크다운 스타일 유지 */
     .markdown-body ul { list-style-type: disc; padding-left: 1.2rem; margin: 0.5rem 0; }
     .markdown-body ol { list-style-type: decimal; padding-left: 1.2rem; margin: 0.5rem 0; }
     .markdown-body li { margin-bottom: 0.25rem; }
     .markdown-body p { margin-bottom: 0.5rem; }
-    .markdown-body p:last-child { margin-bottom: 0; }
     .markdown-body strong { font-weight: 700; }
     .markdown-body em { font-style: italic; }
 </style>
 
 <div id="customerChatWidget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
-
     <div id="custChatWindow" class="hidden w-[360px] h-[550px] bg-white rounded-2xl shadow-2xl border border-indigo-100 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right font-sans">
         <div class="bg-indigo-600 p-4 flex justify-between items-center text-white">
             <div class="flex items-center gap-3">
@@ -67,6 +65,33 @@
 </div>
 
 <script>
+    // 1. 소켓 초기화 및 세션 ID 관리
+    const socket = io();
+    let currentSessionId = localStorage.getItem('chat_session_id');
+
+    // 세션 ID가 없으면 생성 (브라우저별 고유 ID)
+    if (!currentSessionId) {
+        currentSessionId = 'user_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('chat_session_id', currentSessionId);
+    }
+
+    // 2. 소켓 연결 및 방 입장
+    socket.on('connect', () => {
+        console.log("✅ [Customer] 위젯 소켓 연결됨:", currentSessionId);
+        // 고객으로 입장 알림
+        socket.emit('join', { room_id: currentSessionId, user_type: 'customer' });
+    });
+
+    // 3. 메시지 수신 (Admin 또는 AI의 응답)
+    socket.on('new_message', (data) => {
+        // 내가 보낸 메시지는 이미 화면에 있으므로 무시 (sender_type 체크)
+        // sender_type: 'customer' (나), 'admin' (상담원), 'ai' (챗봇)
+        if (data.sender_type !== 'customer') {
+            addCustMessage(data.message, data.sender_type);
+        }
+    });
+
+    // UI: 채팅창 토글
     function toggleCustChat() {
         const win = document.getElementById('custChatWindow');
         win.classList.toggle('hidden');
@@ -74,65 +99,51 @@
             document.getElementById('custChatInput').focus();
             custScrollToBottom();
             if(window.lucide) lucide.createIcons();
+
+            // (옵션) 창 열 때 이전 대화 기록 불러오기 API 호출 가능
+            // loadChatHistory();
         }
     }
 
+    // UI: 스크롤 하단 이동
     function custScrollToBottom() {
         const msgBox = document.getElementById('custChatMessages');
         msgBox.scrollTop = msgBox.scrollHeight;
     }
 
-    async function sendCustMessage(e) {
+    // 4. 메시지 전송 (Socket 사용)
+    function sendCustMessage(e) {
         e.preventDefault();
         const input = document.getElementById('custChatInput');
         const message = input.value.trim();
+
         if (!message) return;
 
-        // UI 추가 (사용자 메시지)
-        addCustMessage(message, 'user');
+        // 1) 내 화면에 즉시 표시
+        addCustMessage(message, 'customer');
+
+        // 2) 소켓으로 전송
+        socket.emit('send_message', {
+            room_id: currentSessionId,
+            sender_type: 'customer',
+            message: message,
+            user_name: '웹사이트 고객' // 로그인 기능이 있다면 실제 이름 사용
+        });
+
         input.value = '';
-        input.disabled = true;
-
-        // 로딩 표시
-        const loadId = addCustLoading();
-
-        try {
-            const response = await fetch('/customer/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: message })
-            });
-            const data = await response.json();
-
-            removeCustLoading(loadId);
-
-            if (response.ok) {
-                // AI 응답 (마크다운 적용됨)
-                addCustMessage(data.reply, 'ai');
-            } else {
-                addCustMessage("죄송합니다. 잠시 후 다시 이용해주세요.", 'ai');
-            }
-        } catch (err) {
-            removeCustLoading(loadId);
-            addCustMessage("서버 연결에 실패했습니다.", 'ai');
-        } finally {
-            input.disabled = false;
-            input.focus();
-        }
+        input.focus();
     }
 
-    function addCustMessage(text, type) {
+    // UI: 메시지 그리기
+    function addCustMessage(text, sender) {
         const box = document.getElementById('custChatMessages');
-        const isUser = type === 'user';
+        const isUser = sender === 'customer' || sender === 'user';
 
+        // 텍스트 포맷팅 (AI/Admin 메시지는 마크다운 적용)
         let formattedText = '';
-
         if (isUser) {
-            // 사용자는 마크다운 필요 없음 (줄바꿈만 처리)
             formattedText = text.replace(/\n/g, '<br>');
         } else {
-            // [핵심 수정] AI 응답은 marked.js로 변환
-            // base.html에서 로드된 marked가 있으면 사용, 없으면 단순 줄바꿈 fallback
             if (typeof marked !== 'undefined') {
                 formattedText = marked.parse(text);
             } else {
@@ -144,10 +155,11 @@
             <div class="flex items-start gap-2.5 ${isUser ? 'flex-row-reverse' : ''}">
                 ${!isUser ? `
                 <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-50 shrink-0">
-                    <i data-lucide="bot" class="w-4 h-4"></i>
+                    <i data-lucide="${sender === 'admin' ? 'headset' : 'bot'}" class="w-4 h-4"></i>
                 </div>` : ''}
 
                 <div class="flex flex-col gap-1 max-w-[85%]">
+                    ${!isUser ? `<span class="text-[10px] text-slate-400 ml-1">${sender === 'admin' ? '상담원' : 'Travel AI'}</span>` : ''}
                     <div class="p-3 ${isUser ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-none shadow-md' : 'bg-white text-slate-700 rounded-2xl rounded-tl-none shadow-sm border border-slate-100'} text-sm leading-relaxed markdown-body">
                         ${formattedText}
                     </div>
@@ -157,32 +169,5 @@
         box.insertAdjacentHTML('beforeend', html);
         custScrollToBottom();
         if(window.lucide) lucide.createIcons();
-    }
-
-    function addCustLoading() {
-        const id = 'cust-load-' + Date.now();
-        const html = `
-            <div id="${id}" class="flex items-start gap-2.5 animate-pulse">
-                 <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-400 border border-indigo-50 shrink-0">
-                    <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
-                </div>
-                <div class="p-3 bg-white rounded-2xl rounded-tl-none shadow-sm border border-slate-100">
-                    <div class="flex gap-1">
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-75"></span>
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-150"></span>
-                    </div>
-                </div>
-            </div>
-        `;
-        document.getElementById('custChatMessages').insertAdjacentHTML('beforeend', html);
-        custScrollToBottom();
-        if(window.lucide) lucide.createIcons();
-        return id;
-    }
-
-    function removeCustLoading(id) {
-        const el = document.getElementById(id);
-        if(el) el.remove();
     }
 </script>

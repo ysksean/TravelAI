@@ -15,6 +15,11 @@ class ChatRoom(db.Model):
     user_name = db.Column(db.String(100), nullable=False)  # 고객 이름
     user_type = db.Column(db.String(10), default='일반')  # 고객 유형 (VIP, 일반 등)
     status = db.Column(db.String(20), nullable=False, default='OPEN')  # OPEN, CLOSED, PENDING 등
+
+    # [중요] 에러 해결을 위해 추가된 컬럼들
+    last_message = db.Column(db.Text, nullable=True)  # 목록에서 보여줄 마지막 메시지
+    last_active = db.Column(db.DateTime, default=datetime.now)  # 정렬 기준 (최신순)
+
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
 
     # Relationship (ChatLog와 1:N 관계 설정)

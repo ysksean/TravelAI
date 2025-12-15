@@ -1,6 +1,7 @@
 import os
 from flask import Flask, redirect, url_for, render_template, jsonify
 from flask_socketio import SocketIO
+import threading
 
 # [1] 모델 및 DB 관련 임포트 (SQLAlchemy)
 from models import db

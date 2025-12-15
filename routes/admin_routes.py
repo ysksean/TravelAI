@@ -216,45 +216,19 @@ admin_bp = Blueprint('chat_admin', __name__, url_prefix='/api/admin')
 
 @admin_bp.route('/rooms')
 def route_get_rooms():
-    """최종 호출 주소: /api/admin/rooms"""
+    """
+    [관리자 사이드바용] 채팅방 목록 반환
+    호출 주소: /api/admin/rooms
+    """
     rooms = get_room_list()
     return jsonify(rooms)
 
 @admin_bp.route('/history/<session_id>')
 def route_get_history(session_id):
-    """최종 호출 주소: /api/admin/history/<session_id>"""
+    """
+    [관리자 채팅창용] 특정 방의 대화 내역 반환
+    호출 주소: /api/admin/history/<session_id>
+    """
     logs = get_chat_logs(session_id)
     return jsonify(logs)
-
-
-@bp.route('/api/chat', methods=['POST'])
-def chat():
-    """
-    관리자용 챗봇 테스트 API
-    (DB 로그 저장은 스키마 수정 전까지 보류하고, RAG 답변 기능만 활성화)
-    """
-    data = request.get_json()
-    user_message = data.get('message')
-
-    if not user_message:
-        return jsonify({'reply': '메시지를 입력해주세요.'}), 400
-
-    try:
-        # 1. RAG 검색
-        retrieved_products = search_best_products(user_message, top_k=3)
-
-        # 2. AI 답변 생성
-        ai_reply = generate_answer(user_message, retrieved_products)
-
-        # [참고] 관리자 모드이므로 검색된 근거(소스)도 같이 보여주면 좋음 (선택사항)
-        sources = [p['product_name'] for p in retrieved_products]
-
-        return jsonify({
-            'reply': ai_reply,
-            'sources': sources
-        })
-
-    except Exception as e:
-        print(f"❌ [Admin Chat Error] {e}")
-        return jsonify({'reply': '에러가 발생했습니다.'}), 500
 

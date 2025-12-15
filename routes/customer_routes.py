@@ -10,7 +10,7 @@ import re
 # [핵심] 우리가 만든 서비스 모듈 임포트
 from services.rag_service import search_best_products
 from services.ai_service import generate_answer
-
+from services.chat_service import get_chat_logs
 # Blueprint 설정
 bp = Blueprint('customer', __name__, template_folder='../templates/customer', static_folder='../static/customer')
 
@@ -182,3 +182,9 @@ def chat():
     except Exception as e:
         print(f"❌ [Customer Chat Error] {e}")
         return jsonify({'reply': '죄송합니다. 잠시 후 다시 시도해주세요.'}), 500
+
+@bp.route('/history/<session_id>')
+def get_my_history(session_id):
+    """내 채팅 기록 가져오기"""
+    logs = get_chat_logs(session_id)
+    return jsonify(logs)
