@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 채팅 테스트 (Kafka Ver)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Malgun Gothic', sans-serif; display: flex; height: 100vh; background-color: #f0f2f5; }
+
+        /* 왼쪽: 채팅방 목록 */
+        .sidebar { width: 300px; background-color: white; border-right: 1px solid #ddd; display: flex; flex-direction: column; }
+        .sidebar-header { padding: 20px; border-bottom: 1px solid #eee; background-color: #3b82f6; color: white; }
+        .sidebar-header h2 { margin: 0; font-size: 18px; }
+        .refresh-btn { margin-top: 10px; width: 100%; padding: 8px; background: rgba(255,255,255,0.2); border: none; color: white; cursor: pointer; }
+
+        .room-list { flex: 1; overflow-y: auto; list-style: none; padding: 0; margin: 0; }
+        .room-item { padding: 15px; border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background 0.2s; }
+        .room-item:hover { background-color: #f8fafc; }
+        .room-item.active { background-color: #eff6ff; border-left: 4px solid #3b82f6; }
+        .room-name { font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .room-id { font-size: 12px; color: #888; }
+
+        /* 오른쪽: 채팅창 */
+        .chat-area { flex: 1; display: flex; flex-direction: column; background-color: #eef2f6; }
+        .chat-header { padding: 15px 20px; background-color: white; border-bottom: 1px solid #ddd; font-weight: bold; }
+
+        .messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+
+        /* 메시지 말풍선 스타일 */
+        .msg-row { display: flex; width: 100%; }
+        .msg-row.admin { justify-content: flex-end; }
+        .msg-row.customer { justify-content: flex-start; }
+
+        .bubble { max-width: 60%; padding: 10px 15px; border-radius: 15px; font-size: 14px; line-height: 1.5; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .msg-row.admin .bubble { background-color: #3b82f6; color: white; border-top-right-radius: 2px; }
+        .msg-row.customer .bubble { background-color: white; color: #333; border-top-left-radius: 2px; }
+        .msg-info { font-size: 10px; margin-top: 4px; opacity: 0.7; text-align: right; }
+
+        /* 입력창 */
+        .input-area { padding: 20px; background-color: white; border-top: 1px solid #ddd; display: flex; gap: 10px; }
+        #msg-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        #msg-input:focus { border-color: #3b82f6; }
+        .send-btn { padding: 0 20px; background-color: #3b82f6; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .send-btn:hover { background-color: #2563eb; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>상담 대기 목록</h2>
+            <button class="refresh-btn" onclick="loadRooms()">🔄 목록 새로고침</button>
+        </div>
+        <ul id="room-list" class="room-list">
+            </ul>
+    </div>
+
+    <div class="chat-area">
+        <div id="current-room-header" class="chat-header">
+            채팅방을 선택해주세요.
+        </div>
+        <div id="messages" class="messages">
+            </div>
+        <div class="input-area">
+            <input type="text" id="msg-input" placeholder="메시지를 입력하세요 (Enter)" onkeypress="handleKeyPress(event)" disabled>
+            <button class="send-btn" onclick="sendAdminMessage()" id="send-btn" disabled>전송</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = io(); // 소켓 연결 시작
+        let currentRoom = null;
+
+        // =========================================
+        // 1. 소켓 이벤트 리스너
+        // =========================================
+        socket.on('connect', () => {
+            console.log("✅ 관리자 소켓 연결 성공!");
+        });
+
+        // [핵심] Kafka -> Server -> Admin 으로 메시지가 도착했을 때
+        socket.on('new_message', (data) => {
+            console.log("📩 새 메시지 수신:", data);
+
+            // 현재 보고 있는 방의 메시지라면 화면에 즉시 표시
+            if (data.room_id === currentRoom) {
+                // DB의 role 컬럼과 Socket의 sender_type을 모두 고려
+                const sender = data.sender_type || data.role;
+                const text = data.message || data.text;
+                appendBubble(sender, text, data.timestamp);
+            } else {
+                // 다른 방에서 왔다면 알림 (여기선 콘솔로그만)
+                console.log(`🔔 알림: ${data.room_id} 방에서 새 메시지가 있습니다.`);
+            }
+        });
+
+        // =========================================
+        // 2. API 호출 함수 (방 목록 & 히스토리)
+        // =========================================
+
+        // 채팅방 목록 불러오기
+        async function loadRooms() {
+            try {
+                // [수정됨] /api/admin/rooms 호출
+                const res = await axios.get('/api/admin/rooms');
+                const list = document.getElementById('room-list');
+                list.innerHTML = '';
+
+                if (res.data.length === 0) {
+                    list.innerHTML = '<li style="padding:20px; text-align:center; color:#888;">대기 중인 상담이 없습니다.</li>';
+                    return;
+                }
+
+                res.data.forEach(room => {
+                    const li = document.createElement('li');
+                    li.className = 'room-item';
+                    // 현재 선택된 방이면 active 클래스 추가
+                    if(room.session_id === currentRoom) li.classList.add('active');
+
+                    li.innerHTML = `
+                        <div class="room-name">${room.user_name || '익명 고객'}</div>
+                        <div class="room-id">${room.session_id}</div>
+                    `;
+                    li.onclick = () => joinRoom(room.session_id, room.user_name);
+                    list.appendChild(li);
+                });
+            } catch (err) {
+                console.error("방 목록 로드 실패:", err);
+                alert("방 목록을 불러오지 못했습니다.");
+            }
+        }
+
+        // 방 입장하기
+        async function joinRoom(roomId, userName) {
+            currentRoom = roomId;
+
+            // UI 업데이트
+            document.getElementById('current-room-header').innerText = `💬 ${userName || '고객'}님과의 상담 (${roomId})`;
+            document.getElementById('msg-input').disabled = false;
+            document.getElementById('send-btn').disabled = false;
+            document.getElementById('messages').innerHTML = ''; // 기존 메시지 초기화
+
+            // 방 목록 스타일 업데이트 (선택된 것 표시)
+            document.querySelectorAll('.room-item').forEach(el => el.classList.remove('active'));
+            // (간단 구현을 위해 여기선 생략, 실제론 목록 다시 그리지 않고 클래스만 토글 추천)
+
+            // 1. 소켓 방 입장 (서버에 알림)
+            socket.emit('join', { room_id: roomId, user_type: 'admin' });
+
+            // 2. 기존 대화 내역 가져오기 (API 호출)
+            try {
+                // [수정됨] /api/admin/history 호출
+                const res = await axios.get(`/api/admin/history/${roomId}`);
+                res.data.forEach(msg => {
+                    // DB에는 role/text로 저장되어 있음
+                    appendBubble(msg.role, msg.text, msg.timestamp);
+                });
+                scrollToBottom();
+            } catch (err) {
+                console.error("기록 로드 실패:", err);
+            }
+        }
+
+        // =========================================
+        // 3. 메시지 전송 및 UI 처리
+        // =========================================
+
+        function sendAdminMessage() {
+            const input = document.getElementById('msg-input');
+            const msg = input.value.trim();
+
+            if (!currentRoom || !msg) return;
+
+            // [핵심] 서버로 메시지 전송 (-> DB저장 -> Kafka -> Client)
+            socket.emit('send_message', {
+                room_id: currentRoom,
+                sender_type: 'admin',    // 관리자가 보냄
+                message: msg,
+                user_name: '상담원'      // 표시될 이름
+            });
+
+            input.value = '';
+            input.focus();
+
+            // 주의: 여기서 appendBubble을 호출하지 않습니다!
+            // Kafka를 돌아서 'new_message' 이벤트가 오면 그때 화면에 그립니다. (확실한 전송 확인)
+        }
+
+        function appendBubble(sender, text, time) {
+            const box = document.getElementById('messages');
+            const row = document.createElement('div');
+
+            // sender가 'admin'이면 오른쪽, 그 외(customer, ai)는 왼쪽
+            const isAdmin = sender === 'admin';
+            row.className = `msg-row ${isAdmin ? 'admin' : 'customer'}`;
+
+            const timeStr = time ? new Date(time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '';
+
+            row.innerHTML = `
+                <div class="bubble">
+                    ${isAdmin ? '' : `<div style="font-weight:bold; margin-bottom:4px; font-size:11px;">${sender}</div>`}
+                    ${text}
+                    <div class="msg-info">${timeStr}</div>
+                </div>
+            `;
+
+            box.appendChild(row);
+            scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            const box = document.getElementById('messages');
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendAdminMessage();
+        }
+
+        // 페이지 로드 시 방 목록 불러오기
+        loadRooms();
+    </script>
+</body>
+</html>

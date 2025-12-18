@@ -1,0 +1,142 @@
+<div id="adminChatWidget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
+
+    <div id="chatWindow" class="hidden w-96 h-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
+        <div class="bg-slate-800 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-2">
+                <i data-lucide="bot" class="w-5 h-5"></i>
+                <span class="font-bold">Travel AI 고객센터</span>
+            </div>
+            <button onclick="toggleChat()" class="text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+            <div class="flex items-start gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">AI</div>
+                <div class="flex flex-col gap-1 w-full max-w-[320px]">
+                    <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-white rounded-e-xl rounded-es-xl shadow-sm">
+                        <p class="text-sm font-normal text-gray-900">
+                            안녕하세요! 👋<br>
+                            여행 상품 추천이나 견적 문의를 도와드립니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 bg-white border-t border-slate-100">
+            <form id="chatForm" onsubmit="sendMessage(event)" class="flex items-center gap-2">
+                <input type="text" id="chatInput"
+                    class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-sm transition-all"
+                    placeholder="질문을 입력하세요..." autocomplete="off">
+                <button type="submit"
+                    class="p-2.5 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-colors shadow-sm">
+                    <i data-lucide="send-horizontal" class="w-5 h-5"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="toggleChat()"
+        class="w-14 h-14 bg-slate-800 hover:bg-slate-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-square" class="w-6 h-6 group-hover:hidden transition-all"></i>
+        <i data-lucide="chevron-down" class="w-6 h-6 hidden group-hover:block transition-all"></i>
+    </button>
+</div>
+
+<script>
+    // 1. 소켓 초기화
+    const socket = io();
+
+    // 고객 식별용 ID (브라우저 저장소 사용)
+    let currentSessionId = localStorage.getItem('chat_session_id');
+    if (!currentSessionId) {
+        currentSessionId = 'user_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('chat_session_id', currentSessionId);
+    }
+
+    // 2. 소켓 연결 및 방 입장
+    socket.on('connect', () => {
+        console.log("✅ [Customer] 소켓 연결됨:", currentSessionId);
+        socket.emit('join', { room_id: currentSessionId, user_type: 'customer' });
+    });
+
+    // 3. 메시지 수신 (Admin 또는 AI의 응답)
+    socket.on('new_message', (data) => {
+        // 내가 보낸 건 이미 화면에 있으므로, 남(Admin/AI)이 보낸 것만 처리
+        if (data.sender_type !== 'customer') {
+            addMessage(data.message, data.sender_type);
+        }
+    });
+
+    // UI: 채팅창 토글
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.classList.toggle('hidden');
+        if (!chatWindow.classList.contains('hidden')) {
+            document.getElementById('chatInput').focus();
+            scrollToBottom();
+        }
+    }
+
+    // UI: 스크롤 하단 이동
+    function scrollToBottom() {
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 4. 메시지 전송
+    function sendMessage(e) {
+        e.preventDefault();
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+
+        if (!message) return;
+
+        // 1) 내 화면에 즉시 표시
+        addMessage(message, 'customer');
+
+        // 2) 소켓 전송
+        socket.emit('send_message', {
+            room_id: currentSessionId,
+            sender_type: 'customer',
+            message: message,
+            user_name: '웹사이트 고객'
+        });
+
+        input.value = '';
+        input.focus();
+    }
+
+    // UI: 메시지 그리기
+    function addMessage(text, sender) {
+        const chatMessages = document.getElementById('chatMessages');
+        const isUser = sender === 'customer' || sender === 'user';
+
+        // 아이콘/스타일 설정
+        let iconHtml = '';
+        if (!isUser) {
+            // AI 또는 상담원 아이콘
+            const label = sender === 'admin' ? '상담원' : 'AI';
+            iconHtml = `<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">${label}</div>`;
+        }
+
+        let contentHtml = `<p class="text-sm font-normal ${isUser ? 'text-white' : 'text-gray-900'}">${text.replace(/\n/g, '<br>')}</p>`;
+
+        const html = `
+            <div class="flex items-start gap-2.5 ${isUser ? 'justify-end' : ''}">
+                ${!isUser ? iconHtml : ''}
+                <div class="flex flex-col gap-1 w-full max-w-[320px]">
+                    ${!isUser ? `<span class="text-xs text-gray-500 ml-1">${sender === 'admin' ? '상담원' : 'Travel AI'}</span>` : ''}
+                     <div class="flex flex-col leading-1.5 p-4 border-gray-200
+                        ${isUser ? 'bg-slate-800 rounded-s-xl rounded-ee-xl text-white' : 'bg-white rounded-e-xl rounded-es-xl shadow-sm'}">
+                        ${contentHtml}
+                    </div>
+                </div>
+            </div>
+        `;
+        chatMessages.insertAdjacentHTML('beforeend', html);
+        scrollToBottom();
+    }
+</script>

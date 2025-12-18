@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ session.land_name }} - 상담실</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c7c7c7; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-slate-100 h-screen flex flex-col">
+    <header class="bg-indigo-700 text-white p-4 shadow-md flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-building"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg">{{ session.land_name }}</h1>
+                <p class="text-xs text-indigo-200">본사 핫라인 연결됨 <span class="w-2 h-2 bg-green-400 rounded-full inline-block ml-1"></span></p>
+            </div>
+        </div>
+        <a href="{{ url_for('land.logout') }}" class="text-sm bg-indigo-800 px-3 py-1 rounded hover:bg-indigo-900 transition">
+            로그아웃
+        </a>
+    </header>
+
+    <main class="flex-1 overflow-hidden flex flex-col max-w-4xl mx-auto w-full bg-white shadow-lg my-4 rounded-lg">
+
+        <div id="messages" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-slate-50">
+            {% for log in logs %}
+                {% if log.role == 'land' %}
+                <div class="flex justify-end">
+                    <div class="bg-indigo-600 text-white rounded-lg rounded-tr-none px-4 py-2 max-w-[70%] shadow-sm text-sm">
+                        {{ log.text }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="flex justify-start">
+                    <div class="bg-white border border-gray-200 text-gray-800 rounded-lg rounded-tl-none px-4 py-2 max-w-[70%] shadow-sm text-sm">
+                        <div class="text-[10px] text-gray-400 mb-1 font-bold">본사 담당자</div>
+                        {{ log.text }}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="p-4 bg-white border-t border-gray-200">
+            <div class="flex gap-2 mb-2">
+                <button onclick="document.getElementById('fileInput').click()"
+                    class="text-xs flex items-center gap-1 bg-green-50 text-green-600 px-3 py-1.5 rounded-full border border-green-200 hover:bg-green-100 transition">
+                    <i class="fa-solid fa-file-invoice"></i> 견적서(JSON) 업로드
+                </button>
+                <input type="file" id="fileInput" accept=".json" class="hidden" onchange="uploadFile(this)">
+            </div>
+
+            <form id="chatForm" class="flex gap-2">
+                <input type="text" id="msgInput" placeholder="메시지를 입력하세요..." autocomplete="off"
+                    class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 outline-none">
+                <button type="submit"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const socket = io();
+        const roomId = "{{ room.session_id }}";
+        const landName = "{{ session.land_name }}";
+
+        // 방 입장
+        socket.emit('join', { room_id: roomId, user_type: 'land' });
+
+        // 메시지 수신
+        socket.on('new_message', (data) => {
+            const box = document.getElementById('messages');
+            const isMe = data.sender_type === 'land';
+
+            const html = isMe ? `
+                <div class="flex justify-end">
+                    <div class="bg-indigo-600 text-white rounded-lg rounded-tr-none px-4 py-2 max-w-[70%] shadow-sm text-sm">
+                        ${data.message}
+                    </div>
+                </div>
+            ` : `
+                <div class="flex justify-start">
+                    <div class="bg-white border border-gray-200 text-gray-800 rounded-lg rounded-tl-none px-4 py-2 max-w-[70%] shadow-sm text-sm">
+                        <div class="text-[10px] text-gray-400 mb-1 font-bold">본사 담당자</div>
+                        ${data.message}
+                    </div>
+                </div>
+            `;
+            box.insertAdjacentHTML('beforeend', html);
+            box.scrollTop = box.scrollHeight;
+        });
+
+        // 메시지 전송
+        document.getElementById('chatForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('msgInput');
+            const msg = input.value.trim();
+            if(!msg) return;
+
+            // 소켓 전송 (서버 events.py에서 DB 저장 처리됨)
+            socket.emit('send_land_message', {
+                room_id: roomId,
+                message: msg,
+                sender_type: 'land'
+            });
+            input.value = '';
+        });
+
+        // [NEW] 파일 업로드 함수 (AJAX)
+        async function uploadFile(input) {
+            if(input.files.length === 0) return;
+
+            const file = input.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('room_id', roomId); // 현재 방 ID
+
+            try {
+                // 업로드 중 표시 등은 필요 시 추가
+                const response = await fetch('/land/upload-quote', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // 성공 시 소켓으로 알림 전송 (화면 갱신용)
+                    socket.emit('send_land_message', {
+                        room_id: roomId,
+                        message: `📄 견적서 전송 완료 (${result.product_name})`,
+                        sender_type: 'land',
+                        type: 'json',
+                        file_path: result.file_path
+                    });
+
+                    // 성공 알림
+                    alert(`✅ 견적 산출 완료!\n총액: ${result.total_price.toLocaleString()}원`);
+                } else {
+                    alert("업로드 실패: " + result.error);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("서버 통신 오류");
+            } finally {
+                input.value = ''; // 초기화
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+{
+  "product": {
+    "product_name": "심천 VIP 노캐디골프 - 쉐라톤 & 남사국제 36홀 C.C",
+    "product_type": "해외",
+    "country": "중국",
+    "city": "심천",
+    "departure_port": "인천",
+    "details_json": {
+      "inclusions": [
+        "왕복 항공권 (유류할증료 및 텍스 포함)",
+        "숙박비 (2인 1실 기준)",
+        "전일정 식사 (조식/중식/석식)",
+        "골프 비용 (그린피, 카트비, 라커실)",
+        "항공+유류할증료"
+      ],
+      "exclusions": [
+        "카트 싱글 차지: 120위안 (현지지불)/18홀/대",
+        "기타 개인적으로 발생하는 비용"
+      ],
+      "special_notes": [
+        "기본 노캐디 상품입니다 (3인 또는 4인 기준)",
+        "2인 라운딩 시 캐디 필수 (캐디팁 150위안 (현지지불)/18홀/인)",
+        "호텔 싱글 차지: 60,000원/박/인 추가",
+        "9홀 추가 비용: 평일 70,000원, 주말 90,000원 (한국 사전 예약 조건)",
+        "광저우 시내 투어 시 300위안 (현지지불)/인 별도",
+        "마카오/홍콩 자유관광 차량 왕복: 100,000원/인",
+        "창롱 서커스: 150,000원/인"
+      ]
+    },
+    "hotels_json": [
+      {
+        "name": "쉐라톤 광저우 남사 호텔 (Sheraton Guangzhou Nansha Hotel)",
+        "description": "초특급 5성급 호텔"
+      },
+      {
+        "name": "남사 국제 리조트"
+      }
+    ],
+    "golf_courses_json": [
+      {
+        "name": "남사국제 C.C (마운틴 코스 / 레이크 코스)"
+      }
+    ],
+    "flight_info_json": {
+      "airline": "대한항공(KE), 아시아나(OZ)",
+      "flight_number": "KE835/KE836, OZ371/OZ372",
+      "schedule": "인천 출발 08:15 - 심천 도착 11:25 (KE 기준)"
+    },
+    "ai_content_json": {
+      "body_text": "심천의 명문 남사국제 C.C에서 즐기는 고품격 노캐디 골프 여행입니다. 5성급 쉐라톤 호텔에서의 편안한 휴식과 전일정 식사가 포함된 올인클루시브 상품으로, 국적기를 이용하여 이동의 편의성을 높였습니다. 2인 출발부터 가능하며 주중, 주말 다양한 일정으로 구성되어 있습니다."
+    },
+    "status": "published"
+  },
+  "product_prices": [
+    {
+      "product_id": 2,
+      "option_name": "땡처리 특가 (12월 7일 OZ항공)",
+      "departure_date": "2025-12-07",
+      "night_count": 3,
+      "day_count": 4,
+      "price_adult": 1299000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "product_id": 2,
+      "option_name": "땡처리 특가 (12월 14일 OZ항공)",
+      "departure_date": "2025-12-14",
+      "night_count": 3,
+      "day_count": 4,
+      "price_adult": 1299000,
+      "price_child": null,
+      "status": "available"
+    }
+  ],
+  "product_itineraries": [
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 7일 OZ항공)",
+      "day_number": 1,
+      "activities_json": {
+        "date_info": "1일차",
+        "meals": {
+          "breakfast": null,
+          "lunch": "클럽식",
+          "dinner": "현지식"
+        },
+        "activities": [
+          {
+            "time": "08:15",
+            "location": "인천",
+            "transport_name": "대한항공 (KE835)",
+            "title": "인천 국제공항 출발",
+            "description": "인천 국제공항 출발 (비행시간 약 4시간)"
+          },
+          {
+            "time": "11:25",
+            "location": "심천",
+            "transport_name": "송영 차량",
+            "title": "심천 공항 도착",
+            "description": "심천공항 도착 후 가이드 미팅 및 골프장으로 이동 (약 40분 소요)"
+          },
+          {
+            "time": "13:00",
+            "location": "남사국제 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "오후 18홀 라운딩",
+            "description": "마운틴 C.C 또는 레이크 C.C 18홀 라운딩 (T-UP 13:00)\n*마운틴코스: 카트 페어웨이 진입 가능\n*레이크코스: 카트 페어웨이 진입 불가"
+          },
+          {
+            "time": "18:00",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "호텔 투숙 및 휴식",
+            "description": "라운딩 종료 후 석식(현지식) 및 호텔 투숙 (쉐라톤호텔 초특급 또는 남사국제리조트)"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 7일 OZ항공)",
+      "day_number": 2,
+      "activities_json": {
+        "date_info": "2일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "클럽식",
+          "dinner": "현지식"
+        },
+        "activities": [
+          {
+            "time": "07:30",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 골프장으로 이동 (약 20분 소요)"
+          },
+          {
+            "time": "08:00",
+            "location": "남사국제 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "오전 18홀 라운딩",
+            "description": "마운틴 C.C 또는 레이크 C.C 18홀 라운딩 (T-UP 08:00)"
+          },
+          {
+            "time": "14:00",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "호텔 투숙 및 휴식",
+            "description": "라운딩 종료 후 석식 및 호텔 휴식"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 7일 OZ항공)",
+      "day_number": 3,
+      "activities_json": {
+        "date_info": "3일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "클럽식",
+          "dinner": "현지식"
+        },
+        "activities": [
+          {
+            "time": "07:40",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 골프장으로 이동 (약 10분 소요)"
+          },
+          {
+            "time": "08:00",
+            "location": "남사국제 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "오전 18홀 라운딩",
+            "description": "마운틴 C.C 또는 레이크 C.C 18홀 라운딩 (T-UP 08:00)"
+          },
+          {
+            "time": "14:00",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "호텔 투숙 및 휴식",
+            "description": "라운딩 종료 후 석식 및 호텔 휴식"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 7일 OZ항공)",
+      "day_number": 4,
+      "activities_json": {
+        "date_info": "4일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "기내식",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "09:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 공항 이동",
+            "description": "호텔 조식 후 체크아웃, 심천 공항으로 이동 (약 40분 소요)"
+          },
+          {
+            "time": "12:40",
+            "location": "심천",
+            "transport_name": "대한항공 (KE836)",
+            "title": "심천 공항 출발",
+            "description": "심천 출발 / 인천 향발"
+          },
+          {
+            "time": "17:00",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "인천 도착 후 해산. 안녕히 가십시오."
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 14일 OZ항공)",
+      "day_number": 1,
+      "activities_json": {
+        "date_info": "1일차",
+        "meals": {
+          "breakfast": null,
+          "lunch": "클럽식",
+          "dinner": "현지식"
+        },
+        "activities": [
+          {
+            "time": "08:15",
+            "location": "인천",
+            "transport_name": "대한항공 (KE835)",
+            "title": "인천 국제공항 출발",
+            "description": "인천 국제공항 출발"
+          },
+          {
+            "time": "11:25",
+            "location": "심천",
+            "transport_name": "송영 차량",
+            "title": "심천 공항 도착",
+            "description": "공항 도착 후 골프장 이동 (40분)"
+          },
+          {
+            "time": "13:00",
+            "location": "남사국제 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "오후 18홀 라운딩",
+            "description": "마운틴 C.C 또는 레이크 C.C 18홀 라운딩"
+          },
+          {
+            "time": "18:00",
+            "location": "호텔",
+            "transport_name": "전용 차량",
+            "title": "호텔 투숙",
+            "description": "석식 후 호텔 투숙"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 14일 OZ항공)",
+      "day_number": 2,
+      "activities_json": {
+        "date_info": "2일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "클럽식",
+          "dinner": "현지식"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "남사국제 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "오전 18홀 라운딩",
+            "description": "조식 후 이동하여 18홀 라운딩 진행"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 14일 OZ항공)",
+      "day_number": 3,
+      "activities_json": {
+        "date_info": "3일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "기내식",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "09:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "공항 이동",
+            "description": "조식 후 공항으로 이동"
+          },
+          {
+            "time": "12:40",
+            "location": "심천",
+            "transport_name": "대한항공 (KE836)",
+            "title": "심천 공항 출발",
+            "description": "심천 출발"
+          },
+          {
+            "time": "17:00",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "인천 도착"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 2,
+      "itinerary_pattern": "땡처리 특가 (12월 14일 OZ항공)",
+      "day_number": 4,
+      "activities_json": {
+        "date_info": "4일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "기내식",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "09:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 공항 이동",
+            "description": "호텔 조식 후 체크아웃, 심천 공항으로 이동 (약 40분 소요)"
+          },
+          {
+            "time": "12:40",
+            "location": "심천",
+            "transport_name": "대한항공 (KE836)",
+            "title": "심천 공항 출발",
+            "description": "심천 출발 / 인천 향발"
+          },
+          {
+            "time": "17:00",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "인천 도착 후 해산. 안녕히 가십시오."
+          }
+        ]
+      }
+    }
+  ]
+}

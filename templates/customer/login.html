@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 - Travel Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 flex items-center justify-center h-screen">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-sky-500 rounded-xl text-white font-bold text-2xl mb-2">T</div>
+            <h2 class="text-2xl font-bold text-slate-800">Travel Agency</h2>
+            <p class="text-slate-500 text-sm mt-1">여행의 시작, 여기서부터</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="mb-4 p-3 bg-red-50 text-red-500 rounded-lg text-sm text-center border border-red-100">
+                    <i class="fa-solid fa-circle-exclamation mr-1"></i> {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('customer.login') }}" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-bold text-slate-700 mb-1">아이디</label>
+                <div class="relative">
+                    <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="user_id" required placeholder="아이디를 입력하세요"
+                        class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:border-sky-500 focus:ring-2 focus:ring-sky-100 outline-none transition-all">
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-slate-700 mb-1">비밀번호</label>
+                <div class="relative">
+                    <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="password" name="password" required placeholder="비밀번호를 입력하세요"
+                        class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:border-sky-500 focus:ring-2 focus:ring-sky-100 outline-none transition-all">
+                </div>
+            </div>
+            <button type="submit"
+                class="w-full bg-sky-500 text-white py-3.5 rounded-xl font-bold hover:bg-sky-600 transition-all shadow-lg shadow-sky-500/30">
+                로그인 하기
+            </button>
+        </form>
+
+        <div class="mt-6 text-center space-y-2">
+            <a href="/" class="text-sm text-slate-400 hover:text-sky-600 transition-colors">메인으로 돌아가기</a>
+            <div class="text-xs text-slate-300">테스트 계정: user01 / 1234</div>
+        </div>
+    </div>
+</body>
+</html>

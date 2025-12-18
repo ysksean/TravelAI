@@ -1,0 +1,646 @@
+{
+  "product": {
+    "product_name": "미야코지마 시내 3색 골프 (호텔 아톨 에메랄드)",
+    "product_type": "해외",
+    "country": "일본",
+    "city": "미야코지마",
+    "departure_port": "인천",
+    "details_json": {
+      "inclusions": [
+        "호텔 숙박비 (2인 1실 기준)",
+        "전 일정 조식",
+        "골프 비용 (그린피, 카트비)",
+        "공항-호텔-골프장 송영 차량",
+        "여행자 보험 (1억원)"
+      ],
+      "exclusions": [
+        "왕복 항공권 (유류할증료 및 텍스)",
+        "중식 및 석식",
+        "캐디피 (노캐디 기준)",
+        "개인 경비"
+      ],
+      "special_notes": [
+        "본 상품은 항공권이 불포함된 '지상비' 기준 상품입니다.",
+        "2인 출발 가능 (단, 2인 플레이 시 추가 요금 발생 가능)",
+        "9홀 추가: 주중 5,000엔~, 주말 7,000엔~ (현지 상황에 따라 변동)",
+        "싱글 룸 이용 시 박당 추가 요금 발생",
+        "호텔: 호텔 아톨 에메랄드 미야코지마 (시내 중심 위치)"
+      ]
+    },
+    "hotels_json": [
+      {
+        "name": "호텔 아톨 에메랄드 미야코지마 (Hotel Atoll Emerald Miyakojima)",
+        "description": "미야코지마 시내에 위치한 오션뷰 호텔로, 식당가와 번화가 접근성이 뛰어납니다."
+      }
+    ],
+    "golf_courses_json": [
+      {
+        "name": "오션 링크스 미야코지마 (Ocean Links Miyakojima)"
+      },
+      {
+        "name": "에메랄드 코스트 골프 링크스 (Emerald Coast Golf Links)"
+      },
+      {
+        "name": "시기라 베이 컨트리 클럽 (Shigira Bay Country Club)"
+      }
+    ],
+    "flight_info_json": {
+      "airline": "진에어(LJ), 대한항공(KE) 등",
+      "flight_number": "개별 항공권 소지 필수",
+      "schedule": "항공 불포함 (개별 항공 스케줄에 맞춰 송영 제공)"
+    },
+    "ai_content_json": {
+      "body_text": "일본의 몰디브, 미야코지마에서 즐기는 환상적인 시내 3색 골프! 시내 중심 '아톨 에메랄드' 호텔에 머물며 라운딩 후에는 맛집 탐방과 쇼핑까지 즐길 수 있는 최고의 가성비 상품입니다. 에메랄드 빛 바다를 배경으로 펼쳐지는 오션 링크스와 시기라 베이에서의 라운딩은 잊지 못할 추억을 선사합니다."
+    },
+    "status": "published"
+  },
+  "product_prices": [
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-01",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1090000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-03",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1000000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-05",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 990000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-07",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1060000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-08",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1060000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-10",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 970000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-12",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 990000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-14",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1060000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-15",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 1060000,
+      "price_child": null,
+      "status": "available"
+    },
+    {
+      "option_name": "2박 3일 패턴",
+      "departure_date": "2025-11-17",
+      "night_count": 2,
+      "day_count": 3,
+      "price_adult": 970000,
+      "price_child": null,
+      "status": "available"
+    }
+  ],
+  "product_itineraries": [
+    {
+      "product_id": 1,
+      "itinerary_pattern": "2박 3일 패턴",
+      "day_number": 1,
+      "activities_json": {
+        "date_info": "1일차",
+        "meals": {
+          "breakfast": null,
+          "lunch": "불포함",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "10:40",
+            "location": "인천",
+            "transport_name": "진에어 (LJ357)",
+            "title": "인천 국제공항 출발",
+            "description": "인천 국제공항 출발 (비행시간 약 2시간 30분 소요)"
+          },
+          {
+            "time": "13:10",
+            "location": "미야코지마",
+            "transport_name": "송영 차량",
+            "title": "미야코지마 공항 도착",
+            "description": "입국 수속 및 가이드 미팅 후 골프장으로 이동 (약 35분 소요)"
+          },
+          {
+            "time": "14:30",
+            "location": "오션 링크스 미야코지마",
+            "transport_name": "골프 라운딩",
+            "title": "오션 링크스 C.C (일몰 플레이)",
+            "description": "오션 링크스 미야코지마 18홀 라운딩 (일몰 시 종료)\n*아름다운 해안선을 따라 펼쳐지는 씨사이드 코스"
+          },
+          {
+            "time": "18:30",
+            "location": "호텔",
+            "transport_name": "호텔 셔틀",
+            "title": "호텔 투숙 및 휴식",
+            "description": "호텔 아톨 에메랄드 미야코지마 체크인 후 석식 및 자유시간"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "2박 3일 패턴",
+      "day_number": 2,
+      "activities_json": {
+        "date_info": "2일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C로 이동 (약 20분 소요)"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "동양의 가장 아름다운 해변과 인접한 명문 코스에서 18홀 라운딩\n*바다를 넘기는 시그니처 홀 보유"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동 및 자유 일정 (시내 관광, 쇼핑 등)"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "2박 3일 패턴",
+      "day_number": 3,
+      "activities_json": {
+        "date_info": "3일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "체크아웃 및 골프장 이동",
+            "description": "호텔 조식 및 체크아웃 후 시기라 베이 C.C로 이동 (약 25분 소요)"
+          },
+          {
+            "time": "09:00",
+            "location": "시기라 베이 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "시기라 베이 컨트리 클럽 18홀",
+            "description": "모든 홀에서 바다가 조망되는 환상적인 코스에서 18홀 라운딩"
+          },
+          {
+            "time": "13:30",
+            "location": "미야코지마 공항",
+            "transport_name": "송영 차량",
+            "title": "공항 이동 및 출국 수속",
+            "description": "라운딩 종료 후 공항으로 이동"
+          },
+          {
+            "time": "14:10",
+            "location": "인천",
+            "transport_name": "진에어 (LJ358)",
+            "title": "인천으로 출발",
+            "description": "미야코지마 출발 (비행시간 약 2시간 40분)"
+          },
+          {
+            "time": "16:50",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "안녕히 가십시오."
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "3박 4일 패턴",
+      "day_number": 1,
+      "activities_json": {
+        "date_info": "1일차",
+        "meals": {
+          "breakfast": null,
+          "lunch": "불포함",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "10:40",
+            "location": "인천",
+            "transport_name": "진에어 (LJ357)",
+            "title": "인천 국제공항 출발",
+            "description": "인천 국제공항 출발"
+          },
+          {
+            "time": "13:10",
+            "location": "미야코지마",
+            "transport_name": "송영 차량",
+            "title": "미야코지마 공항 도착",
+            "description": "입국 수속 및 가이드 미팅 후 골프장으로 이동"
+          },
+          {
+            "time": "14:30",
+            "location": "오션 링크스 미야코지마",
+            "transport_name": "골프 라운딩",
+            "title": "오션 링크스 C.C (일몰 플레이)",
+            "description": "오션 링크스 미야코지마 18홀 라운딩"
+          },
+          {
+            "time": "18:30",
+            "location": "호텔",
+            "transport_name": "호텔 셔틀",
+            "title": "호텔 투숙 및 휴식",
+            "description": "호텔 아톨 에메랄드 미야코지마 체크인"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "3박 4일 패턴",
+      "day_number": 2,
+      "activities_json": {
+        "date_info": "2일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "명문 코스에서 18홀 라운딩"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "3박 4일 패턴",
+      "day_number": 3,
+      "activities_json": {
+        "date_info": "3일차 (체류일)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C(또는 동급)로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "전일 자유 골프 또는 시내 관광"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "3박 4일 패턴",
+      "day_number": 4,
+      "activities_json": {
+        "date_info": "4일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "체크아웃 및 골프장 이동",
+            "description": "호텔 조식 및 체크아웃 후 시기라 베이 C.C로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "시기라 베이 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "시기라 베이 컨트리 클럽 18홀",
+            "description": "모든 홀에서 바다가 조망되는 환상적인 코스에서 18홀 라운딩"
+          },
+          {
+            "time": "13:30",
+            "location": "미야코지마 공항",
+            "transport_name": "송영 차량",
+            "title": "공항 이동 및 출국 수속",
+            "description": "공항으로 이동"
+          },
+          {
+            "time": "14:10",
+            "location": "인천",
+            "transport_name": "진에어 (LJ358)",
+            "title": "인천으로 출발",
+            "description": "미야코지마 출발"
+          },
+          {
+            "time": "16:50",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "안녕히 가십시오."
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "4박 5일 패턴",
+      "day_number": 1,
+      "activities_json": {
+        "date_info": "1일차",
+        "meals": {
+          "breakfast": null,
+          "lunch": "불포함",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "10:40",
+            "location": "인천",
+            "transport_name": "진에어 (LJ357)",
+            "title": "인천 국제공항 출발",
+            "description": "인천 국제공항 출발"
+          },
+          {
+            "time": "13:10",
+            "location": "미야코지마",
+            "transport_name": "송영 차량",
+            "title": "미야코지마 공항 도착",
+            "description": "입국 수속 및 가이드 미팅 후 골프장으로 이동"
+          },
+          {
+            "time": "14:30",
+            "location": "오션 링크스 미야코지마",
+            "transport_name": "골프 라운딩",
+            "title": "오션 링크스 C.C (일몰 플레이)",
+            "description": "오션 링크스 미야코지마 18홀 라운딩"
+          },
+          {
+            "time": "18:30",
+            "location": "호텔",
+            "transport_name": "호텔 셔틀",
+            "title": "호텔 투숙 및 휴식",
+            "description": "호텔 아톨 에메랄드 미야코지마 체크인"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "4박 5일 패턴",
+      "day_number": 2,
+      "activities_json": {
+        "date_info": "2일차",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "명문 코스에서 18홀 라운딩"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "4박 5일 패턴",
+      "day_number": 3,
+      "activities_json": {
+        "date_info": "3일차 (체류일)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C(또는 동급)로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "전일 자유 골프 또는 시내 관광"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "4박 5일 패턴",
+      "day_number": 4,
+      "activities_json": {
+        "date_info": "4일차 (체류일)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함 (클럽식)",
+          "dinner": "불포함 (자유식)"
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "조식 후 골프장 이동",
+            "description": "호텔 조식 후 에메랄드 코스트 C.C(또는 동급)로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "에메랄드 코스트 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "에메랄드 코스트 골프 링크스 18홀",
+            "description": "전일 자유 골프 또는 시내 관광"
+          },
+          {
+            "time": "15:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "호텔 귀환 및 자유시간",
+            "description": "라운딩 종료 후 호텔로 이동"
+          }
+        ]
+      }
+    },
+    {
+      "product_id": 1,
+      "itinerary_pattern": "4박 5일 패턴",
+      "day_number": 5,
+      "activities_json": {
+        "date_info": "5일차 (귀국)",
+        "meals": {
+          "breakfast": "호텔식",
+          "lunch": "불포함",
+          "dinner": null
+        },
+        "activities": [
+          {
+            "time": "08:00",
+            "location": "호텔",
+            "transport_name": "송영 차량",
+            "title": "체크아웃 및 골프장 이동",
+            "description": "호텔 조식 및 체크아웃 후 시기라 베이 C.C로 이동"
+          },
+          {
+            "time": "09:00",
+            "location": "시기라 베이 C.C",
+            "transport_name": "골프 라운딩",
+            "title": "시기라 베이 컨트리 클럽 18홀",
+            "description": "모든 홀에서 바다가 조망되는 환상적인 코스에서 18홀 라운딩"
+          },
+          {
+            "time": "13:30",
+            "location": "미야코지마 공항",
+            "transport_name": "송영 차량",
+            "title": "공항 이동 및 출국 수속",
+            "description": "공항으로 이동"
+          },
+          {
+            "time": "14:10",
+            "location": "인천",
+            "transport_name": "진에어 (LJ358)",
+            "title": "인천으로 출발",
+            "description": "미야코지마 출발"
+          },
+          {
+            "time": "16:50",
+            "location": "인천",
+            "transport_name": "",
+            "title": "인천 국제공항 도착",
+            "description": "안녕히 가십시오."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+	{
+		"id" : 1,
+		"status" : "draft",
+		"product_name" : "중국 심천 미션힐 리조트 4박 5일 명품 골프 투어",
+		"category" : "overseas",
+		"product_type" : "golf",
+		"country" : "중국",
+		"city" : "심천",
+		"departure_point" : "ICN/GMP",
+		"start_date" : "2025-12-07",
+		"end_date" : "2025-12-11",
+		"nights" : 4,
+		"days" : 5,
+		"price_adult" : 1890000,
+		"price_net" : 1550000,
+		"currency" : "KRW",
+		"head_counts": 6,
+		total_price": 11340000,
+		"images" : "[\"https://example.com/images/shenzhen_missionhills_main.jpg\", \"https://example.com/images/golf_course_view.jpg\", \"https://example.com/images/resort_room.jpg\", \"https://example.com/images/shenzhen_food.jpg\"]",
+		"details" : "{\"others\": null, \"exclusions\": [\"캐디팁 (18홀당 150위안/인)\", \"중식 (클럽식)\", \"중국 비자 발급비\", \"개인 경비 및 매너팁\"], \"inclusions\": [\"왕복 항공료 (유류할증료 포함)\", \"미션힐 리조트 동관 4박 (2인 1실)\", \"전 일정 조식 및 석식\", \"그린피, 캐디피, 전동카트 (주중 18홀 / 주말 18홀 기준)\", \"미팅/샌딩 차량 및 기사\", \"여행자 보험\"], \"content_html\": \"<h3>세계 기네스북 등재! 심천 미션힐 골프 리조트</h3><p>진정한 황제 골프를 경험하세요. 총 12개 코스 중 최고의 코스만을 엄선하여 구성했습니다.</p><img src='https://example.com/images/course_map.jpg'><p>5성급 리조트의 편안한 휴식과 함께 잊지 못할 추억을 만들어드립니다.</p>\", \"special_notes\": [\"여권 유효기간 6개월 이상 필수\", \"2인 출발 가능\", \"싱글룸 사용 시 박당 10만원 추가 요금 발생\", \"쇼핑 1회 (라텍스)\"], \"flight_summary\": \"대한항공 (KE827/KE828) 인천-심천 왕복\"}",
+		"resources" : "{\"hotels\": [{\"name\": \"미션힐 리조트 (동관)\", \"grade\": \"5성급\", \"website\": \"www.missionhillschina.com\", \"check_in\": \"15:00\", \"check_out\": \"12:00\", \"image_url\": \"https://example.com/images/hotel_exterior.jpg\", \"meta_info\": {}, \"description\": \"세계 최대 규모 골프 리조트, 럭셔리 객실과 다양한 부대시설 보유\"}], \"golf_courses\": [{\"name\": \"미션힐 C.C (월드컵 코스)\", \"address\": null, \"hole_info\": \"18홀 / 72파 / 7200Y\", \"image_url\": \"https://example.com/images/course_worldcup.jpg\", \"meta_info\": {}, \"description\": \"잭 니클라우스 설계, 국제 대회가 열리는 명문 코스\", \"operation_info\": null}, {\"name\": \"미션힐 C.C (노만 코스)\", \"address\": null, \"hole_info\": \"18홀 / 72파 / 7100Y\", \"image_url\": \"https://example.com/images/course_norman.jpg\", \"meta_info\": {}, \"description\": \"그렉 노만 설계, 자연 지형을 살린 난이도 높은 코스\", \"operation_info\": null}, {\"name\": \"미션힐 C.C (애니카 코스)\", \"address\": null, \"hole_info\": \"18홀 / 72파 / 6800Y\", \"image_url\": \"https://example.com/images/course_annika.jpg\", \"meta_info\": {}, \"description\": \"애니카 소렌스탐 설계, 섬세한 전략이 필요한 코스\", \"operation_info\": null}]}",
+		"itinerary" : "[{\"day\": 1, \"date\": \"2025-12-07\", \"meals\": {\"lunch\": \"기내식\", \"dinner\": \"리조트식\", \"breakfast\": \"불포함\"}, \"activities\": [{\"time\": \"08:30\", \"type\": \"flight\", \"title\": \"인천 국제공항 출발\", \"location\": \"인천\", \"image_url\": null, \"transport\": \"대한항공 (KE827)\", \"description\": \"대한항공 KE827편 탑승\"}, {\"time\": \"14:00\", \"type\": \"golf\", \"title\": \"9홀 맛보기 라운딩\", \"location\": \"미션힐 리조트\", \"image_url\": null, \"transport\": null, \"description\": \"리조트 도착 후 가볍게 라운딩\"}]}, {\"day\": 2, \"date\": \"2025-12-08\", \"meals\": {\"lunch\": \"클럽식\", \"dinner\": \"현지식(훠궈)\", \"breakfast\": \"호텔식\"}, \"activities\": [{\"time\": \"09:00\", \"type\": \"golf\", \"title\": \"월드컵 코스 18홀\", \"location\": \"미션힐 C.C\", \"image_url\": null, \"transport\": null, \"description\": \"잭 니클라우스 설계 코스\"}, {\"time\": \"18:00\", \"type\": \"meal\", \"title\": \"석식 (훠궈)\", \"location\": \"심천 시내\", \"image_url\": null, \"transport\": null, \"description\": \"현지 특식 제공\"}]}, {\"day\": 3, \"date\": \"2025-12-09\", \"meals\": {\"lunch\": \"클럽식\", \"dinner\": \"호텔식\", \"breakfast\": \"호텔식\"}, \"activities\": [{\"time\": \"09:00\", \"type\": \"golf\", \"title\": \"노만 코스 18홀\", \"location\": \"미션힐 C.C\", \"image_url\": null, \"transport\": null, \"description\": \"그렉 노만 설계 코스\"}, {\"time\": \"14:00\", \"type\": \"other\", \"title\": \"전신 마사지 체험\", \"location\": \"리조트 스파\", \"image_url\": null, \"transport\": null, \"description\": \"여행 피로 회복 (60분 코스)\"}]}, {\"day\": 4, \"date\": \"2025-12-10\", \"meals\": {\"lunch\": \"클럽식\", \"dinner\": \"호텔식\", \"breakfast\": \"호텔식\"}, \"activities\": [{\"time\": \"09:00\", \"type\": \"golf\", \"title\": \"애니카 코스 18홀\", \"location\": \"미션힐 C.C\", \"image_url\": null, \"transport\": null, \"description\": \"애니카 소렌스탐 설계 코스\"}, {\"time\": \"15:00\", \"type\": \"sightseeing\", \"title\": \"동부 화교성 테마파크\", \"location\": \"동부 화교성\", \"image_url\": null, \"transport\": null, \"description\": \"스위스 마을 테마파크 관광\"}]}, {\"day\": 5, \"date\": \"2025-12-11\", \"meals\": {\"lunch\": \"기내식\", \"dinner\": \"불포함\", \"breakfast\": \"호텔식\"}, \"activities\": [{\"time\": \"09:00\", \"type\": \"transport\", \"title\": \"체크아웃 및 공항 이동\", \"location\": \"리조트 로비\", \"image_url\": null, \"transport\": null, \"description\": \"리조트 체크아웃 후 공항으로 이동\"}, {\"time\": \"12:45\", \"type\": \"flight\", \"title\": \"심천 국제공항 출발\", \"location\": \"심천\", \"image_url\": null, \"transport\": \"대한항공 (KE828)\", \"description\": \"대한항공 KE828편 탑승\"}]}]",
+		"source_files" : "[\"quotation_shenzhen.pdf\", \"price_table_dec.xlsx\"]",
+		"created_at" : "2025-12-13 15:03:05",
+		"updated_at" : "2025-12-13 15:03:05"
+	}
+]

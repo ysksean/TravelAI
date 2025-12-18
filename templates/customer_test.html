@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>고객 채팅 테스트</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        .chat-container { width: 400px; height: 600px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+
+        .header { background: #3b82f6; padding: 20px; color: white; }
+        .header h2 { margin: 0 0 10px 0; font-size: 18px; }
+        .login-box { display: flex; gap: 5px; }
+        .login-box input { padding: 5px; border-radius: 4px; border: none; flex: 1; }
+        .login-box button { padding: 5px 10px; border-radius: 4px; border: none; background: #2563eb; color: white; cursor: pointer; }
+
+        .messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #eef2f6; }
+
+        .msg-row { display: flex; width: 100%; }
+        /* 내 메시지(customer)는 오른쪽, 남(admin/ai)은 왼쪽 */
+        .msg-row.customer { justify-content: flex-end; }
+        .msg-row.admin, .msg-row.ai, .msg-row.bot { justify-content: flex-start; }
+
+        .bubble { max-width: 70%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.4; position: relative; }
+        .msg-row.customer .bubble { background: #3b82f6; color: white; border-top-right-radius: 2px; }
+        .msg-row.admin .bubble { background: white; color: #333; border: 1px solid #ddd; border-top-left-radius: 2px; }
+        .msg-row.ai .bubble, .msg-row.bot .bubble { background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; border-top-left-radius: 2px; }
+
+        .sender-name { font-size: 10px; margin-bottom: 4px; opacity: 0.7; }
+
+        .input-area { padding: 15px; background: white; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        #msg-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        #send-btn { padding: 0 20px; background: #3b82f6; color: white; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        #send-btn:disabled { background: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">
+        <h2>✈️ 여행 상담 챗봇</h2>
+        <div class="login-box">
+            <input type="text" id="room-id" placeholder="방 ID" value="user_test_01">
+            <input type="text" id="user-name" placeholder="이름" value="유신">
+            <button onclick="joinChat()">입장</button>
+        </div>
+    </div>
+
+    <div id="messages" class="messages">
+        <div style="text-align:center; color:#888; font-size:12px; margin-top:10px;">
+            방 ID를 입력하고 입장 버튼을 눌러주세요.
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="msg-input" placeholder="메시지 입력..." onkeypress="handleKeyPress(event)" disabled>
+        <button id="send-btn" onclick="sendMessage()" disabled>전송</button>
+    </div>
+</div>
+
+<script>
+    const socket = io();
+    let currentRoom = null;
+    let currentUser = null;
+
+    socket.on('connect', () => console.log("✅ 고객 소켓 연결됨"));
+
+    // [실시간 메시지 수신]
+    socket.on('new_message', (data) => {
+        if (data.room_id === currentRoom) {
+            // DB 컬럼명(role) 혹은 소켓 데이터(sender_type) 호환 처리
+            const sender = data.sender_type || data.role;
+            const text = data.message || data.text;
+            appendMessage(sender, text, data.user_name);
+        }
+    });
+
+    // [입장하기 버튼 클릭 시]
+    async function joinChat() {
+        const roomId = document.getElementById('room-id').value.trim();
+        const userName = document.getElementById('user-name').value.trim();
+        if (!roomId) return alert("방 ID를 입력하세요.");
+
+        currentRoom = roomId;
+        currentUser = userName;
+
+        // 1. 소켓 입장 (실시간 연결)
+        socket.emit('join', { room_id: roomId, user_type: 'customer' });
+
+        // UI 활성화 및 초기화
+        document.getElementById('messages').innerHTML = '';
+        document.getElementById('msg-input').disabled = false;
+        document.getElementById('send-btn').disabled = false;
+
+        // 2. [추가된 부분] 과거 채팅 내역 불러오기 (API 호출)
+        try {
+            const response = await axios.get(`/api/chat/history/${roomId}`);
+            const logs = response.data;
+
+            if(logs.length === 0) {
+                appendSystemMessage("이전 대화 내역이 없습니다.");
+            } else {
+                logs.forEach(msg => {
+                    // msg.role: 'customer', 'admin', 'bot' 등
+                    // msg.text: 메시지 내용
+                    appendMessage(msg.role, msg.text, msg.user_name);
+                });
+                appendSystemMessage("--- 지난 대화 내역을 불러왔습니다 ---");
+            }
+        } catch (error) {
+            console.error("채팅 내역 불러오기 실패:", error);
+            appendSystemMessage("채팅 기록을 불러오지 못했습니다.");
+        }
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('msg-input');
+        const msg = input.value.trim();
+        if (!msg || !currentRoom) return;
+
+        // 서버로 전송
+        socket.emit('send_message', {
+            room_id: currentRoom,
+            sender_type: 'customer',
+            message: msg,
+            user_name: currentUser,
+            user_type: '일반'
+        });
+
+        input.value = '';
+        input.focus();
+    }
+
+    function appendMessage(sender, text, name) {
+        const box = document.getElementById('messages');
+        const row = document.createElement('div');
+
+        // CSS 스타일 적용을 위한 클래스 지정 (customer / admin / bot)
+        let typeClass = 'admin'; // 기본값
+        if (sender === 'customer') typeClass = 'customer';
+        else if (sender === '봇' || sender === 'ai' || sender === 'agent') typeClass = 'ai';
+        else if (sender === 'admin') typeClass = 'admin';
+
+        const isMe = (typeClass === 'customer');
+        row.className = `msg-row ${typeClass}`;
+
+        const senderName = isMe ? '나' : (name || sender);
+
+        row.innerHTML = `
+            <div class="bubble">
+                ${!isMe ? `<div class="sender-name">${senderName}</div>` : ''}
+                ${text}
+            </div>
+        `;
+        box.appendChild(row);
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function appendSystemMessage(text) {
+        const box = document.getElementById('messages');
+        const div = document.createElement('div');
+        div.style.textAlign = 'center';
+        div.style.fontSize = '12px';
+        div.style.color = '#888';
+        div.style.margin = '10px 0';
+        div.innerText = text;
+        box.appendChild(div);
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') sendMessage();
+    }
+</script>
+
+</body>
+</html>
