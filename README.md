@@ -7,7 +7,7 @@
 ![Socket.IO](https://img.shields.io/badge/Socket.IO-4.0+-010101?style=flat&logo=socket.io&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.0+-231F20?style=flat&logo=apache-kafka&logoColor=white)
 ![AI](https://img.shields.io/badge/Google%20Gemini-2.5%20Flash-4285F4?style=flat&logo=google&logoColor=white)
-**Intelligent travel booking platform with AI-powered chatbot and real-time multi-party communication**
+- **Intelligent travel booking platform with AI-powered chatbot and real-time multi-party communication**
 ---
 ## 📋 프로젝트 개요
 ### 🎯 해결하는 문제
